@@ -18,6 +18,8 @@ namespace BankAccounts.Repository.Entities
 
         public DateTime BirthDate { get; set; }
 
-        public decimal Salary { get; set; }
+        public decimal AnnualGrossSalary { get; set; }
+
+        public DateTime DoB { get; set; }
     }
 }

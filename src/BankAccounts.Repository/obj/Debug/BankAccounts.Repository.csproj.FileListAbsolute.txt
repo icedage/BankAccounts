@@ -7,3 +7,14 @@ C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccou
 C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.dll
 C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
 C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.csprojResolveAssemblyReference.cache
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.pdb
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Bson.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Core.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Legacy.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Bson.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
