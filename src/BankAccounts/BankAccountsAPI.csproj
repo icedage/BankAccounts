@@ -252,6 +252,10 @@
       <Project>{08619679-e39c-4057-9a73-2907d7b2a105}</Project>
       <Name>BankAccounts.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BankAccounts.Services\BankAccounts.Services.csproj">
+      <Project>{a93f5d63-7da7-4aa7-8c4d-c8ebdabc2741}</Project>
+      <Name>BankAccounts.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

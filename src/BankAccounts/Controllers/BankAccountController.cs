@@ -1,5 +1,5 @@
-﻿using BankAccounts.Repository.DataAccessComponents;
-using BankAccounts.Repository.Entities;
+﻿using BankAccounts.Repository.Entities;
+using BankAccounts.Services.Services;
 using BankAccountsAPI.Models.Requests;
 using System;
 using System.Collections.Generic;
@@ -13,60 +13,100 @@ namespace BankAccountsAPI.Controllers
 {
     public class BankAccountController : ApiController
     {
-        private readonly  IBankAccountRepository _bankAccountRepository;
+        private readonly  IBankAccountService _bankAccountService;
 
-        public BankAccountController()
+        public BankAccountController(IBankAccountService bankAccountService)
         {
-            _bankAccountRepository = new BankAccountRepository();
+            _bankAccountService = bankAccountService;
         }
 
         [Authorize]
-        public async Task<IHttpActionResult> Post(CustomerDetails customerDetails)
+        [HttpPost]
+        public IHttpActionResult Post(CustomerDetails customerDetails)
         {
-            var errorResult = GetErrorResult(customerDetails);
-
-            if (errorResult != null)
+            try
             {
-                return errorResult;
+                _bankAccountService.CreateBankAccount(new BankAccountDto()
+                {
+                    Address = customerDetails.Address,
+                    BirthDate = customerDetails.BirthDate,
+                    FirstName = customerDetails.FirstName,
+                    LastName = customerDetails.LastName,
+                    PostCode = customerDetails.PostCode
+                });
+
+                return Ok();
             }
-
-           var result= _bankAccountRepository.CreateAccount(new CustomerDetailsDto() {
-                                                                                Address=customerDetails.Address,
-                                                                                BirthDate=customerDetails.BirthDate,
-                                                                                FirstName=customerDetails.FirstName,
-                                                                                LastName=customerDetails.LastName,
-                                                                                PostCode=customerDetails.PostCode,
-                                                                                //Salary=customerDetails.Salary
-                                                                          });
-           if (result != null)
-           {
-               return Ok();
-           }
-
-           return BadRequest();
+            catch(Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message); 
+            }
         }
 
         [Authorize]
-        public async Task<IHttpActionResult> GetAll()
+        [HttpGet]
+        public IHttpActionResult Get()
         {
-            var accounts = _bankAccountRepository.GetAccounts();
-            return Ok(accounts);
+            try
+            {
+                var bankAccounts = _bankAccountService.GetBankAccounts();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message); 
+            }
         }
 
-        //public async Task<IHttpActionResult> Get(Guid id)
-        //{
-        //    var account = _bankAccountRepository.GetAccount(id);
-        //    return Ok(account);
-        //}
-
-        public async Task<IHttpActionResult> Put(CustomerDetails customerDetails)
+        [HttpGet]
+        public IHttpActionResult Get(Guid id)
         {
-            return Ok();
+            try 
+            {
+                var account = _bankAccountService.GetBankAccount(id);
+                return Ok(account);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
         }
 
-        public async Task<IHttpActionResult> Delete(Guid id)
+        [HttpPut]
+        public IHttpActionResult Put(CustomerDetails customerDetails)
         {
-            return Ok();
+            try
+            {
+                _bankAccountService.UpdateBankAccount(new BankAccountDto()
+                {
+                    Address = customerDetails.Address,
+                    BirthDate = customerDetails.BirthDate,
+                    FirstName = customerDetails.FirstName,
+                    LastName = customerDetails.LastName,
+                    PostCode = customerDetails.PostCode
+                });
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(Guid id)
+        {
+            try
+            {
+                _bankAccountService.DeleteBankAccount(id);
+              
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
         }
 
         private IHttpActionResult GetErrorResult(CustomerDetails customerDetails)

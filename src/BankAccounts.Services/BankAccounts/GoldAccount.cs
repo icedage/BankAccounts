@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Repository.Entities
+namespace BankAccounts.Services.BankAccounts
 {
-    public class BankAccountDto
+    public class GoldAccount
     {
-      
     }
 }

@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Repository.Entities
 {
-    public class CustomerDetailsDto
+    public class BankAccountDto
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string Id { get; set; }
 
         public string Address { get; set; }
 
