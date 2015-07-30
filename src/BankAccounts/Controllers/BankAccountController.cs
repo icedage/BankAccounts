@@ -33,6 +33,7 @@ namespace BankAccountsAPI.Controllers
                     FirstName = customerDetails.FirstName,
                     LastName = customerDetails.LastName,
                     PostCode = customerDetails.PostCode
+
                 });
 
                 return Ok();
