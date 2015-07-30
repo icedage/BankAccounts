@@ -30,13 +30,13 @@ namespace BankAccountsAPI.Controllers
                 return errorResult;
             }
 
-           var result= _bankAccountRepository.CreateAccount(new CustomerDetailsDto() { 
+           var result= _bankAccountRepository.CreateAccount(new CustomerDetailsDto() {
                                                                                 Address=customerDetails.Address,
                                                                                 BirthDate=customerDetails.BirthDate,
                                                                                 FirstName=customerDetails.FirstName,
                                                                                 LastName=customerDetails.LastName,
                                                                                 PostCode=customerDetails.PostCode,
-                                                                                Salary=customerDetails.Salary
+                                                                                //Salary=customerDetails.Salary
                                                                           });
            if (result != null)
            {
