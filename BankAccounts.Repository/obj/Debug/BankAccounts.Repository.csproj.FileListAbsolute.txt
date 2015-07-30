@@ -1,0 +1,9 @@
+C:\Users\coco123456\documents\visual studio 2013\Projects\AccountsAPI\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.dll
+C:\Users\coco123456\documents\visual studio 2013\Projects\AccountsAPI\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.pdb
+C:\Users\coco123456\documents\visual studio 2013\Projects\AccountsAPI\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.dll
+C:\Users\coco123456\documents\visual studio 2013\Projects\AccountsAPI\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
+C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.dll
+C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.pdb
+C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.dll
+C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
+C:\Users\coco123456\Documents\Visual Studio 2013\Projects\BankAccounts\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.csprojResolveAssemblyReference.cache
