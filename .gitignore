@@ -43,22 +43,18 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-
-**/src/BankAccounts/bin/*
-**/obj/*
-
-# mstest test results
-TestResults
-*.suo
-*.user
-
-#packages
 # NuGet Packages
-*.nupkg
-# The packages folder can be ignored because of Package Restore
 **/packages/*
-# except build/, which is used as an MSBuild target.
+packages/*
+*.nupkg
+## TODO: If the tool you use requires repositories.config
+## uncomment the next line
+!**/packages/repositories.config
+!packages/repositories.config
+
+# Enable "build/" folder in the NuGet Packages folder since
+# NuGet packages use it for MSBuild targets.
+# This line needs to be after the ignore of the build folder
+# (and the packages folder if the lines above for that has been uncommented)
 !**/packages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
+!packages/build/
