@@ -131,3 +131,4 @@ C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\Thinktecture.Identi
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.dll
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.pdb
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\xunit.execution.desktop.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.csprojResolveAssemblyReference.cache

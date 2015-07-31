@@ -29,3 +29,4 @@ C:\Projects\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Le
 C:\Projects\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Bson.xml
 C:\Projects\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.xml
 C:\Projects\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.csprojResolveAssemblyReference.cache
