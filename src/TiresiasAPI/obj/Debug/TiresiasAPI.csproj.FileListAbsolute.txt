@@ -11,4 +11,3 @@ C:\DotNet\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.xml
 C:\DotNet\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.WebHost.xml
 C:\DotNet\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.dll
 C:\DotNet\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.pdb
-C:\DotNet\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.csprojResolveAssemblyReference.cache
