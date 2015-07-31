@@ -56,3 +56,5 @@ TestResults
 src/packages/*
 src/packages/repositories.config
 src/BankAccountsAPI.Specs/packages.config
+src/bin
+src/obj
