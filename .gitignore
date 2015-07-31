@@ -57,5 +57,5 @@ src/packages/*
 src/packages/repositories.config
 src/BankAccountsAPI.Specs/packages.config
 src/bin
-src/bankAccounts/obj
-src/bankAccounts/bin
+!src/bankAccounts/obj
+!src/bankAccounts/bin
