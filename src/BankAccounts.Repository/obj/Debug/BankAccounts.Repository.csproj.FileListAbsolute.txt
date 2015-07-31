@@ -18,7 +18,6 @@ C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Bson.xml
 C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.xml
 C:\DotNet\BankAccounts\src\BankAccounts.Repository\bin\Debug\MongoDB.Driver.Legacy.xml
 C:\DotNet\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
-C:\Projects\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.dll
 C:\Projects\BankAccounts\src\BankAccounts.Repository\obj\Debug\BankAccounts.Repository.pdb
 C:\Projects\BankAccounts\src\BankAccounts.Repository\bin\Debug\BankAccounts.Repository.dll
