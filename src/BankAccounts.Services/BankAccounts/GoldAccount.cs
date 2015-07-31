@@ -8,5 +8,6 @@ namespace BankAccounts.Services.BankAccounts
 {
     public class GoldAccount
     {
+
     }
 }

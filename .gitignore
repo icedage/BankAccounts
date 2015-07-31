@@ -42,16 +42,20 @@ StyleCop.Cache
 #packages
 src/packages/*
 !src/packages/repositories.config
-src/BankAccounts/bin/*
+
+#obj
 src/BankAccounts/obj/*
-src/BankAccounts.Repository/bin/*
 src/BankAccounts.Repository/obj/*
-src/BankAccounts.Services/bin/*
 src/BankAccounts.Services/obj/*
-src/BankAccountsAPI.Specs/bin/*
 src/BankAccountsAPI.Specs/obj/*
-src/TiresiasAPI/bin/*
 src/TiresiasAPI/obj/*
+
+#bin
+src/BankAccounts/bin/*
+src/BankAccounts.Repository/bin/*
+src/BankAccounts.Services/bin/*
+src/BankAccountsAPI.Specs/bin/*
+src/TiresiasAPI/bin/*
 
 #logs
 *.log
