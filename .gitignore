@@ -53,9 +53,11 @@ TestResults
 *.user
 
 #packages
-src/packages/*
-src/packages/repositories.config
-src/BankAccountsAPI.Specs/packages.config
-src/bin
-!src/bankAccounts/obj
-!src/bankAccounts/bin
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
