@@ -32,32 +32,22 @@ $RECYCLE.BIN/
 # Thumbnails
 ._*
 
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+bin
+obj
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# mstest test results
+TestResults
+*.suo
+*.user
+StyleCop.Cache
 
-# NuGet Packages
-**/packages/*
-packages/*
-*.nupkg
-## TODO: If the tool you use requires repositories.config
-## uncomment the next line
-!**/packages/repositories.config
-!packages/repositories.config
+#packages
+src/packages/*
+!src/packages/repositories.config
 
-# Enable "build/" folder in the NuGet Packages folder since
-# NuGet packages use it for MSBuild targets.
-# This line needs to be after the ignore of the build folder
-# (and the packages folder if the lines above for that has been uncommented)
-!**/packages/build/
-!packages/build/
+#logs
+*.log
 
-**/bin/*
-bin/*
+#merge
+*.orig
