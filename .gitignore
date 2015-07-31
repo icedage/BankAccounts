@@ -42,9 +42,10 @@ StyleCop.Cache
 #packages
 src/packages/*
 !src/packages/repositories.config
-src/BankAccounts/bin/*
-src/BankAccounts/obj/*
-
+**bin/*
+**obj/*
+bin/*
+obj/*
 
 #logs
 *.log
