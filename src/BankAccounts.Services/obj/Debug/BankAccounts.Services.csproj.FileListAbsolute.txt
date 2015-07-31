@@ -12,3 +12,17 @@ C:\Projects\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.Lega
 C:\Projects\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.dll
 C:\Projects\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.pdb
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\BankAccounts.Services.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\BankAccounts.Services.pdb
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\BankAccounts.Repository.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Bson.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.Legacy.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.Core.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\BankAccounts.Repository.pdb
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Bson.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Services\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\DotNet\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.csprojResolveAssemblyReference.cache
+C:\DotNet\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.dll
+C:\DotNet\BankAccounts\src\BankAccounts.Services\obj\Debug\BankAccounts.Services.pdb

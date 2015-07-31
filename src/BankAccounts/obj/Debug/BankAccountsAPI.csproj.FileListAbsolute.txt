@@ -212,3 +212,5 @@ C:\Projects\BankAccounts\src\BankAccounts\bin\MongoDB.Driver.Legacy.xml
 C:\Projects\BankAccounts\src\BankAccounts\obj\Debug\BankAccountsAPI.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccounts\obj\Debug\BankAccountsAPI.dll
 C:\Projects\BankAccounts\src\BankAccounts\obj\Debug\BankAccountsAPI.pdb
+C:\DotNet\BankAccounts\src\BankAccounts\bin\BankAccounts.Services.dll
+C:\DotNet\BankAccounts\src\BankAccounts\bin\BankAccounts.Services.pdb
