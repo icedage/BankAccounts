@@ -94,7 +94,6 @@ C:\DotNet\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\System.IdentityModel.
 C:\DotNet\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\Thinktecture.IdentityModel.Core.pdb
 C:\DotNet\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.dll
 C:\DotNet\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.pdb
-C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\xunit.execution.desktop.dll
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\BankAccountsAPI.Specs.dll.config
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\BankAccountsAPI.Specs.dll
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\BankAccountsAPI.Specs.pdb
@@ -129,6 +128,6 @@ C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\nunit.framework.xml
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\RestSharp.xml
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\Thinktecture.IdentityModel.Core.pdb
-C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.dll
 C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\obj\Debug\BankAccountsAPI.Specs.pdb
+C:\Projects\BankAccounts\src\BankAccountsAPI.Specs\bin\Debug\xunit.execution.desktop.dll
