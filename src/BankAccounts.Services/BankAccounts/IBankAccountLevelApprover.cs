@@ -7,11 +7,8 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public class ClassicAccount : BankAccountLevelApprover
+    public interface IBankAccountLevelApprover
     {
-        public override BankAccountApproval ProcessRequest(CustomerDto bankAccountApproval)
-        {
-            throw new NotImplementedException();
-        }
+        BankAccountApproval ProcessRequest(CustomerDto bankAccountApproval);
     }
 }

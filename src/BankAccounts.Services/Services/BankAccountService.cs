@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankAccounts.Repository.Entities;
+using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.Services
 {
     public class BankAccountService : IBankAccountService
     {
-        public void CreateBankAccount(BankAccountDto bankAccountDto)
+        public void CreateBankAccount(CustomerDto bankAccountDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateBankAccount(BankAccountDto bankAccountDto)
+        public void UpdateBankAccount(CustomerDto bankAccountDto)
         {
             throw new NotImplementedException();
         }

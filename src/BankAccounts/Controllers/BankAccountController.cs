@@ -26,7 +26,7 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.CreateBankAccount(new BankAccountDto()
+                _bankAccountService.CreateBankAccount(new CustomerDto()
                 {
                     Address = customerDetails.Address,
                     BirthDate = customerDetails.BirthDate,
@@ -40,7 +40,7 @@ namespace BankAccountsAPI.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.InnerException.Message); 
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
@@ -55,14 +55,14 @@ namespace BankAccountsAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.InnerException.Message); 
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
         [HttpGet]
         public IHttpActionResult Get(Guid id)
         {
-            try 
+            try
             {
                 var account = _bankAccountService.GetBankAccount(id);
                 return Ok(account);
@@ -78,7 +78,7 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.UpdateBankAccount(new BankAccountDto()
+                _bankAccountService.UpdateBankAccount(new CustomerDto()
                 {
                     Address = customerDetails.Address,
                     BirthDate = customerDetails.BirthDate,
@@ -101,7 +101,7 @@ namespace BankAccountsAPI.Controllers
             try
             {
                 _bankAccountService.DeleteBankAccount(id);
-              
+
                 return Ok();
             }
             catch (Exception ex)
