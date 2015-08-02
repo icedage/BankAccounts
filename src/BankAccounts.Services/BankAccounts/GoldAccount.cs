@@ -9,10 +9,9 @@ namespace BankAccounts.Services.BankAccounts
 {
     public class GoldAccount : BankAccountLevelApprover
     {
-        public override BankAccountLevelApprover ProcessRequest(CustomerDto bankAccountApproval)
+        public override BankAccountApproval ProcessRequest(CustomerDto bankAccountApproval)
         {
             throw new NotImplementedException();
-            return null;
         }
     }
 }
