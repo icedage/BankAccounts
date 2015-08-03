@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Repository
 {
-    public interface IMongoDBRepository<T> where T :class
+    public interface IRepository<T> where T :class
     {
         IEnumerable<T> GetAll();
 
@@ -14,8 +14,8 @@ namespace BankAccounts.Repository
 
         void Add(T item);
 
-        void Remove(string id);
+        bool Remove(string id);
 
-        void Update(T item);
+        bool Update(T item);
     }
 }

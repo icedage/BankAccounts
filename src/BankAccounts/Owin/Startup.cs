@@ -1,7 +1,7 @@
 ﻿using BankAccounts.Identity.Infrastructure;
 using BankAccountsAPI;
 using BankAccountsAPI.Infrastructure;
-using BankAccountsAPI.OwinTest;
+using BankAccountsAPI.Owin;
 using BankAccountsAPI.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
@@ -19,19 +19,14 @@ using System.Web;
 using System.Web.Http;
 
 [assembly: OwinStartup(typeof(Startup))]
-namespace BankAccountsAPI.OwinTest
+namespace BankAccountsAPI.Owin
 {
     public class Startup
     {
 
         public void Configuration(IAppBuilder app)
-        
         {
-           // HttpConfiguration httpConfig = new HttpConfiguration();
             HttpConfiguration config = new HttpConfiguration();
-
-            ConfigureOAuthTokenGeneration(app);
-
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
@@ -48,10 +43,10 @@ namespace BankAccountsAPI.OwinTest
             {
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
+                TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider(),
-                //AccessTokenFormat = new CustomJwtFormat("http://localhost:51313")
+                Provider = new CustomOAuthProvider(),
+                AccessTokenFormat = new CustomJwtFormat("http://localhost:51313")
             };
 
             // OAuth 2.0 Bearer Access Token Generation
