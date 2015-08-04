@@ -9,6 +9,8 @@ namespace BankAccounts.Services.BankAccounts
 {
     public interface IBankAccountLevelApprover
     {
-        BankAccountApproval ProcessRequest(CustomerDto bankAccountApproval);
+        BankAccountBenefits ProcessRequest(CustomerDto customer);
+
+        void SetSuccessor(BankAccountStatusApprover successor);
     }
 }
