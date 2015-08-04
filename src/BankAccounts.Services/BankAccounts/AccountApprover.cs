@@ -7,15 +7,15 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public abstract class BankAccountLevelApprover: IBankAccountLevelApprover
+    public abstract class BankAccountStatusApprover: IBankAccountLevelApprover
     {
-        protected BankAccountLevelApprover successor;
+        protected BankAccountStatusApprover _successor;
 
-        public void SetSuccessor(BankAccountLevelApprover successor)
+        public virtual void SetSuccessor(BankAccountStatusApprover successor)
         {
-            this.successor = successor;
+            this._successor = successor;
         }
 
-        public abstract BankAccountApproval ProcessRequest(CustomerDto bankAccountApproval);
+        public abstract BankAccountBenefits ProcessRequest(CustomerDto customer);
     }
 }

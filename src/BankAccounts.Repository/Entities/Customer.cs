@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace BankAccounts.Repository.Entities
 {
     public class Customer
     {
-        [BsonId]
+        public Customer()
+        {
+        }
+
         public string Id { get; set; }
 
         public string FirstName { get; set; }
@@ -25,5 +27,9 @@ namespace BankAccounts.Repository.Entities
         public decimal AnnualGrossSalary { get; set; }
 
         public DateTime DoB { get; set; }
+
+        public string AccountNumber {get;set;}
+
+        public string SortCode { get; set; }
     }
 }

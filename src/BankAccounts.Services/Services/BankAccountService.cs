@@ -4,15 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankAccounts.Repository.Entities;
+using BankAccounts.Services.BankAccounts;
 using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.Services
 {
     public class BankAccountService : IBankAccountService
     {
-        public void CreateBankAccount(CustomerDto bankAccountDto)
+        private IBankAccountLevelApprover _bankAccountLevelApprover;
+
+        public BankAccountService(IBankAccountLevelApprover bankAccountLevelApprover)
         {
-            throw new NotImplementedException();
+            _bankAccountLevelApprover = bankAccountLevelApprover;
+        }
+
+        public void CreateBankAccount(CustomerDto customer)
+        {
+            //You call TiresiasAPI
+            //You save Customer and retrieve CustomerId
+
+            //Call Generator amd retrieve BankAccountId
+            //You Save the Bank Account
+
+            //You Call the COR for Account Level and benefits
+            //You save it.
+            IBankAccountLevelApprover classicAccount = new ClassicAccount();
+            var silverAccount = new SilverAccount();
+            var goldAccount= new GoldAccount();
+
+            classicAccount.SetSuccessor(silverAccount);
+            silverAccount.SetSuccessor(goldAccount);
+            //switch(account.Status)
+            //{
+            //}
+            //throw new NotImplementedException();
         }
 
         public void UpdateBankAccount(CustomerDto bankAccountDto)

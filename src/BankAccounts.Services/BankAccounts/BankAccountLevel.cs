@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public enum BankAccountLevel
+    public enum BankAccountStatus
     {
         Classic =1,
         Silver =2,
