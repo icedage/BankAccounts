@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.Services
 {
     public interface IBankAccountService
     {
-        void CreateBankAccount(BankAccountDto bankAccountDto);
+        void CreateBankAccount(CustomerDto bankAccountDto);
 
-        void UpdateBankAccount(BankAccountDto bankAccountDto);
+        void UpdateBankAccount(CustomerDto bankAccountDto);
 
         BankAccountDto GetBankAccount(Guid id);
 

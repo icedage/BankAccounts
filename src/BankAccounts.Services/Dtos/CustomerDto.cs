@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Repository.Entities
 {
-    public class BankAccountDto
+    public class CustomerDto
     {
         public string FirstName { get; set; }
 
