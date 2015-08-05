@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,48 +11,61 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Repository
 {
-    public class CustomerRepository : IRepository<Customer>
+    public class CustomerRepository : ICustomerRepository
     {
+        private SqlCommand _sqlCommand;
+        private SqlConnection _sqlConnection;
+
+        public CustomerRepository()
+        {
+            _sqlConnection = new SqlConnection("Server=(local);DataBase=Northwind;Integrated Security=SSPI");
+        }
+
         public IEnumerable<Customer> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Customer Get(string id)
+        public Customer Get(int customerId)
         {
-            using(var context = new CustomerContext())
-            {
-                return context.Customers.Where(x => x.Id == id).FirstOrDefault();
-            }
+            throw new NotImplementedException();
         }
 
-        public void Add(Customer item)
+        public int Add(Customer customer)
         {
-            using(var context = new CustomerContext())
+            try
             {
-                context.Customers.Add(item);
-                context.SaveChanges();
+                var returnValue = new SqlParameter();
+                returnValue.Direction = ParameterDirection.ReturnValue;
+                _sqlConnection.Open();
+                _sqlCommand = new SqlCommand();
+                _sqlCommand.CommandType = CommandType.StoredProcedure;
+                _sqlCommand.Parameters.Add(new SqlParameter("@FirstName", customer.FirstName));
+                _sqlCommand.Parameters.Add(new SqlParameter("@LastName", customer.LastName));
+                _sqlCommand.Parameters.Add(new SqlParameter("@PersonalId", customer.Id));
+                _sqlCommand.Parameters.Add(new SqlParameter("@Address", customer.Address));
+                _sqlCommand.Parameters.Add(new SqlParameter("@PostCode", customer.PostCode));
+                _sqlCommand.Parameters.Add(new SqlParameter("@DoB", customer.DoB));
+                _sqlCommand.Parameters.Add(new SqlParameter("@AnnualGrossSalary", customer.AnnualGrossSalary));
+                _sqlCommand .Parameters.Add(returnValue);
+                _sqlCommand.ExecuteNonQuery();
+                return (int)returnValue.Value;
             }
-        }
-
-        public bool Update(Customer customer)
-        {
-            using(var context = new CustomerContext())
+            finally
             {
-                context.Customers.Attach(customer);
-                context.Entry(customer).State = EntityState.Modified;
-                return context.SaveChanges() > 0;
+                _sqlConnection.Dispose();
+                _sqlCommand.Dispose();
             }
         }
 
         public bool Remove(string id)
         {
-            using(var context = new CustomerContext())
-            {
-                var customer = context.Customers.Find(id);
-                context.Customers.Remove(customer);
-                return context.SaveChanges() > 0;
-            }
+            throw new NotImplementedException();
+        }
+
+        public bool Update(Customer customer)
+        {
+            throw new NotImplementedException();
         }
     }
 }
