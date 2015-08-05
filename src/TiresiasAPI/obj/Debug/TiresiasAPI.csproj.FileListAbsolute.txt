@@ -11,3 +11,20 @@ C:\DotNet\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.xml
 C:\DotNet\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.WebHost.xml
 C:\DotNet\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.dll
 C:\DotNet\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.pdb
+<<<<<<< HEAD
+=======
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\TiresiasAPI.dll.config
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\TiresiasAPI.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\TiresiasAPI.pdb
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\Newtonsoft.Json.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Net.Http.Formatting.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.WebHost.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\Newtonsoft.Json.xml
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Net.Http.Formatting.xml
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.xml
+C:\Projects\BankAccounts\src\TiresiasAPI\bin\System.Web.Http.WebHost.xml
+C:\Projects\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.dll
+C:\Projects\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.pdb
+C:\Projects\BankAccounts\src\TiresiasAPI\obj\Debug\TiresiasAPI.csprojResolveAssemblyReference.cache
+>>>>>>> 00bf7d90ebd7f6c44e4c8f4cb8cfcb2368bc4a16

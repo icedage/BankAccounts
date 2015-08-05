@@ -206,6 +206,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ModelFactory.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -216,12 +217,13 @@
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
+    <Compile Include="Infrastructure\Configuration.cs" />
     <Compile Include="Models\CreateRoleBindingModel.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\Requests\CustomerDetails.cs" />
     <Compile Include="Models\Response\BankAccountApproval.cs" />
     <Compile Include="Models\UsersInRoleModel.cs" />
-    <Compile Include="OwinTest\Startup.cs" />
+    <Compile Include="Owin\Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CustomJwtFormat.cs" />
     <Compile Include="Providers\CustomOAuthProvider.cs" />
