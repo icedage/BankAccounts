@@ -9,7 +9,7 @@ namespace TiresiasAPI.Models
     {
         public Status Status { get; set; }
 
-        public DateTime Datatime { get; set; }
+        public DateTime Datetime { get; set; }
 
         public string Lender { get; set; }
 
