@@ -9,6 +9,9 @@ namespace BankAccountsAPI.Models.Requests
     public class CustomerDetails
     {
         [Required]
+        public string DrivingLicense { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
 
         [Required]
@@ -24,6 +27,6 @@ namespace BankAccountsAPI.Models.Requests
         public DateTime BirthDate { get; set; }
 
         [Required]
-        public decimal Salary { get; set; }
+        public decimal AnnualGrossSalary { get; set; }
     }
 }

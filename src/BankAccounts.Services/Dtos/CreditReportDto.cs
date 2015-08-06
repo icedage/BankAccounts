@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.BankAccounts
+namespace BankAccounts.Services.Dtos
 {
-    public enum BankAccountStatus
+    class CreditReportDto
     {
-        Classic =1,
-        Silver =2,
-        Gold =3
     }
 }
