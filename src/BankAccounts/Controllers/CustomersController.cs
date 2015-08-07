@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccountsAPI.Models.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,11 @@ namespace BankAccountsAPI.Controllers
 {
     public class CustomersController : ApiController
     {
+        [HttpPost]
+        public IHttpActionResult Post(CustomerDetails customerDetails)
+        {
+
+            return Ok();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Services.Dtos
 {
-    class CreditReportDto
+    public class CreditReportDto
     {
     }
 }
