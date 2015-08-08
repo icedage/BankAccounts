@@ -27,7 +27,12 @@ namespace BankAccounts.Services.Services
 
 
             }
-            return result;
+            return null;
+        }
+
+        CreditReportDto ICreditReportService.GetCreditReport(CustomerDto customer)
+        {
+            throw new NotImplementedException();
         }
     }
 }
