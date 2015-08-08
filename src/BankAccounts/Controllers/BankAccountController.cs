@@ -29,7 +29,7 @@ namespace BankAccountsAPI.Controllers
                 _bankAccountService.CreateBankAccount(new CustomerDto()
                 {
                     Address = customerDetails.Address,
-                    BirthDate = customerDetails.BirthDate,
+                    //BirthDate = customerDetails.BirthDate,
                     FirstName = customerDetails.FirstName,
                     LastName = customerDetails.LastName,
                     PostCode = customerDetails.PostCode
@@ -81,7 +81,7 @@ namespace BankAccountsAPI.Controllers
                 _bankAccountService.UpdateBankAccount(new CustomerDto()
                 {
                     Address = customerDetails.Address,
-                    BirthDate = customerDetails.BirthDate,
+                    //BirthDate = customerDetails.BirthDate,
                     FirstName = customerDetails.FirstName,
                     LastName = customerDetails.LastName,
                     PostCode = customerDetails.PostCode

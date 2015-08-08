@@ -8,10 +8,6 @@ namespace BankAccounts.Repository.Entities
 {
     public class Customer
     {
-        public Customer()
-        {
-        }
-
         public string Id { get; set; }
 
         public string FirstName { get; set; }
@@ -27,9 +23,5 @@ namespace BankAccounts.Repository.Entities
         public decimal AnnualGrossSalary { get; set; }
 
         public DateTime DoB { get; set; }
-
-        public string AccountNumber {get;set;}
-
-        public string SortCode { get; set; }
     }
 }

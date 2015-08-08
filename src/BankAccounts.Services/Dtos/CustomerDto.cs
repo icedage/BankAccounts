@@ -12,16 +12,18 @@ namespace BankAccounts.Repository.Entities
 
         public string LastName { get; set; }
 
-        public string Id { get; set; }
+        public string PersonalId { get; set; }
+
+        public string Nationality { get; set; }
 
         public string Address { get; set; }
 
         public string PostCode { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime DoB { get; set; }
 
         public decimal AnnualGrossSalary { get; set; }
 
-        public DateTime DoB { get; set; }
+        public decimal AnnualNetSalary { get; set; }
     }
 }

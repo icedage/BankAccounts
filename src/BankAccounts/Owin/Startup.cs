@@ -37,7 +37,7 @@ namespace BankAccountsAPI.Owin
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
         {
             app.CreatePerOwinContext(ApplicationDbContext.Create);
-           app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {

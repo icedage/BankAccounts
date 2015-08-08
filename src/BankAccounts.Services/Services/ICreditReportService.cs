@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Services.Services
 {
-    interface ICreditReportService
+    public interface ICreditReportService
     {
         CreditReportDto GetCreditReport(CustomerDto customer);
     }

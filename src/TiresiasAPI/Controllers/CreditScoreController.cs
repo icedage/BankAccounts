@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using TiresiasAPI.Models;
 
 namespace TiresiasAPI.Controllers
 {
@@ -12,6 +13,12 @@ namespace TiresiasAPI.Controllers
     {
         [HttpGet]
         public async Task<IHttpActionResult> Get()
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> Post(CreditReportRequest request)
         {
             return Ok();
         }
