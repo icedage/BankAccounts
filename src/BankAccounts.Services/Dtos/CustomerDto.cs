@@ -14,7 +14,7 @@ namespace BankAccounts.Repository.Entities
 
         public string PersonalId { get; set; }
 
-        public string Nationality {get;set;}
+        public string Nationality { get; set; }
 
         public string Address { get; set; }
 
@@ -25,4 +25,5 @@ namespace BankAccounts.Repository.Entities
         public decimal AnnualGrossSalary { get; set; }
 
         public decimal AnnualNetSalary { get; set; }
+    }
 }
