@@ -1,7 +1,9 @@
 ﻿using BankAccounts.Repository.Entities;
 using BankAccounts.Services.Dtos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -14,20 +16,22 @@ namespace BankAccounts.Services.Services
 
         public async Task<CreditReportDto> GetCreditReport(CustomerDto customer)
         {
-            string page = "http://en.wikipedia.org/";
-            string result = string.Empty;
+           CreditReportDto result;
 
-            // ... Use HttpClient.
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(page))
+            var postData = new List<KeyValuePair<string, string>>();
+            postData.Add(new KeyValuePair<string, string>("Name", "test"));
+            postData.Add(new KeyValuePair<string, string>("Price ", "100"));
+
+            var formUrlEncodedContent = new FormUrlEncodedContent(postData); 
+
+            var client = new HttpClient();
+            var response = await client.PostAsync(ConfigurationManager.AppSettings["TiresiasAPI"], formUrlEncodedContent);
+            
             using (HttpContent content = response.Content)
             {
-                // ... Read the string.
-                result = await content.ReadAsStringAsync();
-
-
+                result = await JsonConvert.DeserializeObjectAsync<CreditReportDto>(await content.ReadAsStringAsync());
             }
-            return null;
+            return result;
         }
 
         CreditReportDto ICreditReportService.GetCreditReport(CustomerDto customer)

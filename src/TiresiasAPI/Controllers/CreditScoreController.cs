@@ -20,7 +20,12 @@ namespace TiresiasAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Post(CreditReportRequest request)
         {
-            return Ok();
+
+            return Ok(  new { 
+                                Score= request.Score, 
+                                Lenders= request.Defaults 
+                            }
+                      );
         }
     }
 }
