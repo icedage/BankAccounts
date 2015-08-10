@@ -1,4 +1,4 @@
-﻿using BankAccounts.Repository.Entities;
+﻿using BankAccounts.Services.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Services.Services
 {
-    public interface ICustomerService
+    public interface IAccountDetailsService
     {
-        int CreateCustomer(CustomerDto customer);
+        AccountDto GetAccount();
     }
 }

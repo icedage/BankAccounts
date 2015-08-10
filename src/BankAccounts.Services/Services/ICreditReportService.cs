@@ -10,6 +10,6 @@ namespace BankAccounts.Services.Services
 {
     public interface ICreditReportService
     {
-        CreditReportDto GetCreditReport(CustomerDto customer);
+        Task<CustomerDto> GetCreditReport(CustomerDto customer);
     }
 }

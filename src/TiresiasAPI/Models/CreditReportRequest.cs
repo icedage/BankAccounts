@@ -13,10 +13,6 @@ namespace TiresiasAPI.Models
 
         public DateTime DoF { get; set; }
 
-        public IList<Address> PostCode { get; set; }
-
-        public decimal Score { get; set; }
-
-        public IList<Default> Defaults { get; set; }
+        public IList<Address> Addresses { get; set; }
     }
 }

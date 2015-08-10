@@ -1,4 +1,5 @@
-﻿using BankAccounts.Repository.Entities;
+﻿using BankAccounts.Repository;
+using BankAccounts.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,25 @@ namespace BankAccounts.Services.Services
 {
     public class CustomerService : ICustomerService
     {
-        private ICreditReportService _creditReportService;
+        private ICustomerRepository _customerRepository;
 
-        public CustomerService(ICreditReportService creditReportService)
+        public CustomerService(ICustomerRepository customerRepository)
         {
-            _creditReportService = creditReportService;
+            _customerRepository = customerRepository;
         }
 
-        public void CreateCustomer(CustomerDto customer)
+        public int CreateCustomer(CustomerDto customerDto)
         {
-            var report = _creditReportService.GetCreditReport(customer);
- 
-            throw new NotImplementedException();
+            var customer = new Customer()
+            {
+                FirstName = customerDto.FirstName,
+                LastName = customerDto.LastName,
+                DoB = customerDto.DoB,
+                AnnualGrossSalary = customerDto.AnnualGrossSalary
+            };
+            var customerId = _customerRepository.Add(customer);
+
+            return customerId;
         }
     }
 }

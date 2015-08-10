@@ -43,8 +43,6 @@ namespace BankAccounts.Repository
                 _sqlCommand.Parameters.Add(new SqlParameter("@FirstName", customer.FirstName));
                 _sqlCommand.Parameters.Add(new SqlParameter("@LastName", customer.LastName));
                 _sqlCommand.Parameters.Add(new SqlParameter("@PersonalId", customer.Id));
-                _sqlCommand.Parameters.Add(new SqlParameter("@Address", customer.Address));
-                _sqlCommand.Parameters.Add(new SqlParameter("@PostCode", customer.PostCode));
                 _sqlCommand.Parameters.Add(new SqlParameter("@DoB", customer.DoB));
                 _sqlCommand.Parameters.Add(new SqlParameter("@AnnualGrossSalary", customer.AnnualGrossSalary));
                 _sqlCommand .Parameters.Add(returnValue);

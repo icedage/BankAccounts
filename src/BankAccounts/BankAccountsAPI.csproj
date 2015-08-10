@@ -218,6 +218,7 @@
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Infrastructure\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\CreateRoleBindingModel.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\Requests\CustomerDetails.cs" />

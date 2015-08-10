@@ -8,35 +8,30 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TiresiasAPI.Models;
 
 namespace BankAccounts.Services.Services
 {
     public class CreditReportService : ICreditReportService
     {
-
-        public async Task<CreditReportDto> GetCreditReport(CustomerDto customer)
+        public async Task<CustomerDto> GetCreditReport(CustomerDto customer)
         {
-           CreditReportDto result;
-
             var postData = new List<KeyValuePair<string, string>>();
-            postData.Add(new KeyValuePair<string, string>("Name", "test"));
-            postData.Add(new KeyValuePair<string, string>("Price ", "100"));
-
+            postData.Add(new KeyValuePair<string, string>("FirstName", customer.FirstName.ToString()));
+            postData.Add(new KeyValuePair<string, string>("LastName", customer.LastName));
+            postData.Add(new KeyValuePair<string, string>("DoB", customer.DoB.ToString()));
+            
             var formUrlEncodedContent = new FormUrlEncodedContent(postData); 
 
             var client = new HttpClient();
-            var response = await client.PostAsync(ConfigurationManager.AppSettings["TiresiasAPI"], formUrlEncodedContent);
             
-            using (HttpContent content = response.Content)
-            {
-                result = await JsonConvert.DeserializeObjectAsync<CreditReportDto>(await content.ReadAsStringAsync());
-            }
-            return result;
-        }
+            var response = await client.PostAsync(ConfigurationManager.AppSettings["TiresiasAPI"], formUrlEncodedContent);
 
-        CreditReportDto ICreditReportService.GetCreditReport(CustomerDto customer)
-        {
-            throw new NotImplementedException();
+            var customerReport = await JsonConvert.DeserializeObjectAsync<CreditReportDto>(await response.Content.ReadAsStringAsync());
+
+            customer.CreditReport = new CreditReportDto() { Score = customerReport.Score, IsEligible = customerReport.Lenders.Any(x => x.Status == Status.Unsatisfied) ? false : true };
+            
+            return customer;
         }
     }
 }

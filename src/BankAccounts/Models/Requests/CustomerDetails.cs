@@ -9,7 +9,7 @@ namespace BankAccountsAPI.Models.Requests
     public class CustomerDetails
     {
         [Required]
-        public string DrivingLicense { get; set; }
+        public string PersonalId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -18,7 +18,10 @@ namespace BankAccountsAPI.Models.Requests
         public string LastName { get; set; }
 
         [Required]
-        public string Address { get; set; }
+        public string Nationality { get; set; }
+
+        [Required]
+        public Address Address { get; set; }
 
         [Required]
         public string PostCode { get; set; }
@@ -28,5 +31,8 @@ namespace BankAccountsAPI.Models.Requests
 
         [Required]
         public decimal AnnualGrossSalary { get; set; }
+
+        [Required]
+        public decimal AnnualNetSalary { get; set; }
     }
 }

@@ -26,15 +26,15 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.CreateBankAccount(new CustomerDto()
-                {
-                    Address = customerDetails.Address,
-                    //BirthDate = customerDetails.BirthDate,
-                    FirstName = customerDetails.FirstName,
-                    LastName = customerDetails.LastName,
-                    PostCode = customerDetails.PostCode
+                //_bankAccountService.CreateBankAccount(new CustomerDto()
+                //{
+                //    Address = customerDetails.Address,
+                //    BirthDate = customerDetails.BirthDate,
+                //    FirstName = customerDetails.FirstName,
+                //    LastName = customerDetails.LastName,
+                //    PostCode = customerDetails.PostCode
 
-                });
+                //});
 
                 return Ok();
             }
@@ -78,14 +78,14 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.UpdateBankAccount(new CustomerDto()
-                {
-                    Address = customerDetails.Address,
-                    //BirthDate = customerDetails.BirthDate,
-                    FirstName = customerDetails.FirstName,
-                    LastName = customerDetails.LastName,
-                    PostCode = customerDetails.PostCode
-                });
+                //_bankAccountService.UpdateBankAccount(new CustomerDto()
+                //{
+                //    Address = customerDetails.Address,
+                //    //BirthDate = customerDetails.BirthDate,
+                //    FirstName = customerDetails.FirstName,
+                //    LastName = customerDetails.LastName,
+                //    PostCode = customerDetails.PostCode
+                //});
 
                 return Ok();
             }
