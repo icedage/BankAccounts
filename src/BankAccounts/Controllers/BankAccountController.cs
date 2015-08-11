@@ -26,21 +26,21 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.CreateBankAccount(new BankAccountDto()
-                {
-                    Address = customerDetails.Address,
-                    BirthDate = customerDetails.BirthDate,
-                    FirstName = customerDetails.FirstName,
-                    LastName = customerDetails.LastName,
-                    PostCode = customerDetails.PostCode
+                //_bankAccountService.CreateBankAccount(new CustomerDto()
+                //{
+                //    Address = customerDetails.Address,
+                //    BirthDate = customerDetails.BirthDate,
+                //    FirstName = customerDetails.FirstName,
+                //    LastName = customerDetails.LastName,
+                //    PostCode = customerDetails.PostCode
 
-                });
+                //});
 
                 return Ok();
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.InnerException.Message); 
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
@@ -55,14 +55,14 @@ namespace BankAccountsAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.InnerException.Message); 
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
         [HttpGet]
         public IHttpActionResult Get(Guid id)
         {
-            try 
+            try
             {
                 var account = _bankAccountService.GetBankAccount(id);
                 return Ok(account);
@@ -78,14 +78,14 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                _bankAccountService.UpdateBankAccount(new BankAccountDto()
-                {
-                    Address = customerDetails.Address,
-                    BirthDate = customerDetails.BirthDate,
-                    FirstName = customerDetails.FirstName,
-                    LastName = customerDetails.LastName,
-                    PostCode = customerDetails.PostCode
-                });
+                //_bankAccountService.UpdateBankAccount(new CustomerDto()
+                //{
+                //    Address = customerDetails.Address,
+                //    //BirthDate = customerDetails.BirthDate,
+                //    FirstName = customerDetails.FirstName,
+                //    LastName = customerDetails.LastName,
+                //    PostCode = customerDetails.PostCode
+                //});
 
                 return Ok();
             }
@@ -101,7 +101,7 @@ namespace BankAccountsAPI.Controllers
             try
             {
                 _bankAccountService.DeleteBankAccount(id);
-              
+
                 return Ok();
             }
             catch (Exception ex)
