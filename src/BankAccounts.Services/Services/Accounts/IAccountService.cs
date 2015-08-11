@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Dtos
+namespace BankAccounts.Services.Services
 {
-    public class BankAccountDto
+    public interface IAccountService
     {
+        void CreateAccount(int customerId);
     }
 }

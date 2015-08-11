@@ -66,22 +66,21 @@
     <Compile Include="BankAccounts\SilverAccount.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
     <Compile Include="Dtos\AddressDto.cs" />
-    <Compile Include="Dtos\BankAccountDto.cs" />
     <Compile Include="Dtos\CreditReportDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="AccountBenefits\Common\Overdraft.cs" />
     <Compile Include="Dtos\DefaultDto.cs" />
     <Compile Include="Dtos\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AccountDetailsService.cs" />
-    <Compile Include="Services\BankAccountService.cs" />
-    <Compile Include="Services\CodeGenerator.cs" />
-    <Compile Include="Services\CreditReportService.cs" />
-    <Compile Include="Services\CustomerService.cs" />
-    <Compile Include="Services\IAccountDetailsService.cs" />
-    <Compile Include="Services\IBankAccountService.cs" />
-    <Compile Include="Services\ICreditReportService.cs" />
-    <Compile Include="Services\ICustomerService.cs" />
+    <Compile Include="Services\Accounts\AccountDetailsService.cs" />
+    <Compile Include="Services\Accounts\AccountService.cs" />
+    <Compile Include="Services\Accounts\CodeGenerator.cs" />
+    <Compile Include="Services\CreditReport\CreditReportService.cs" />
+    <Compile Include="Services\Customers\CustomerService.cs" />
+    <Compile Include="Services\Accounts\IAccountDetailsService.cs" />
+    <Compile Include="Services\Accounts\IAccountService.cs" />
+    <Compile Include="Services\CreditReport\ICreditReportService.cs" />
+    <Compile Include="Services\Customers\ICustomerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BankAccounts.Repository\BankAccounts.Repository.csproj">

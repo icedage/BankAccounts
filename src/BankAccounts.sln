@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountsAPI", "BankAccounts\BankAccountsAPI.csproj", "{1CF5C90B-DDE6-4DB9-BC3B-5FCABEB8C5B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersAPI", "BankAccounts\CustomersAPI.csproj", "{1CF5C90B-DDE6-4DB9-BC3B-5FCABEB8C5B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountsAPI.Specs", "BankAccountsAPI.Specs\BankAccountsAPI.Specs.csproj", "{F1C73616-C2BC-4B75-A4EF-639C21BE6F46}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Services", "BankAccounts.Services\BankAccounts.Services.csproj", "{A93F5D63-7DA7-4AA7-8C4D-C8EBDABC2741}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiresiasAPI", "TiresiasAPI\TiresiasAPI.csproj", "{2AA5AB81-0706-4E77-A323-7F87758C8802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountsAPI", "BankAccountsAPI\BankAccountsAPI.csproj", "{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{2AA5AB81-0706-4E77-A323-7F87758C8802}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA5AB81-0706-4E77-A323-7F87758C8802}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA5AB81-0706-4E77-A323-7F87758C8802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
