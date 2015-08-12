@@ -1,0 +1,17 @@
+C:\DotNet\BankAccounts\src\BankAccountsAPI\obj\Debug\AccountsAPI.csprojResolveAssemblyReference.cache
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccountsAPI.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccountsAPI.pdb
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccounts.Services.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\Newtonsoft.Json.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Net.Http.Formatting.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Web.Http.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Web.Http.WebHost.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccounts.Repository.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccounts.Services.pdb
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\Newtonsoft.Json.xml
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Net.Http.Formatting.xml
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Web.Http.xml
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\System.Web.Http.WebHost.xml
+C:\DotNet\BankAccounts\src\BankAccountsAPI\bin\BankAccounts.Repository.pdb
+C:\DotNet\BankAccounts\src\BankAccountsAPI\obj\Debug\BankAccountsAPI.dll
+C:\DotNet\BankAccounts\src\BankAccountsAPI\obj\Debug\BankAccountsAPI.pdb

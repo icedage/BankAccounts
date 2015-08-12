@@ -8,22 +8,18 @@ using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public class ClassicAccount : BankAccountStatusApprover
+    public class ClassicAccount : IRequestAccountHandler
     {
-        private BankAccountBenefits _bankAccountApproval;
+        public BankAccountBenefits Benefits { get; set; }
 
-        public ClassicAccount()
-        {
-            _bankAccountApproval = new BankAccountBenefits();
-        }
 
-        public override BankAccountBenefits ProcessRequest(CustomerDto bankAccountApproval)
+        public void ProcessRequest(CustomerDto customer)
         {
-            if( bankAccountApproval.AnnualGrossSalary > 5000 || bankAccountApproval.AnnualGrossSalary < 30000 )
+            if( customer.AnnualGrossSalary > 5000 || customer.AnnualGrossSalary < 30000 )
             {
-                _bankAccountApproval.ClassicAccountBenefits.IncludesCheckBook = true;
-                _bankAccountApproval.ClassicAccountBenefits.IncludesInternetBanking = true;
-                _bankAccountApproval.ClassicAccountBenefits.Overdraft = new Overdraft() {  IncludesGracePeriod = false,
+                Benefits.ClassicAccountBenefits.IncludesCheckBook = true;
+                Benefits.ClassicAccountBenefits.IncludesInternetBanking = true;
+                Benefits.ClassicAccountBenefits.Overdraft = new Overdraft() {  IncludesGracePeriod = false,
                                                                                            IncludesOverdraftBuffer = false,
                                                                                            OverDraftBalance = 35,
                                                                                            PerdayCharges = 1.5m
@@ -31,9 +27,10 @@ namespace BankAccounts.Services.BankAccounts
             }
             else
             {
-                _bankAccountApproval = this._successor.ProcessRequest(bankAccountApproval);
+                Successor.ProcessRequest(customer);
             }
-            return _bankAccountApproval;
         }
+
+        public IRequestAccountHandler Successor { get; set; }
     }
 }

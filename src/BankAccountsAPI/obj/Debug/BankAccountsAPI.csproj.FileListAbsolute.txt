@@ -15,3 +15,4 @@ C:\Projects\BankAccounts\src\BankAccountsAPI\bin\System.Web.Http.WebHost.xml
 C:\Projects\BankAccounts\src\BankAccountsAPI\bin\BankAccounts.Repository.pdb
 C:\Projects\BankAccounts\src\BankAccountsAPI\obj\Debug\BankAccountsAPI.dll
 C:\Projects\BankAccounts\src\BankAccountsAPI\obj\Debug\BankAccountsAPI.pdb
+C:\DotNet\BankAccounts\src\BankAccountsAPI\obj\Debug\BankAccountsAPI.csprojResolveAssemblyReference.cache

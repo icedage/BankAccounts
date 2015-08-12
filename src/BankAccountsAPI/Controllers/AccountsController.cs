@@ -18,9 +18,9 @@ namespace BankAccountsAPI.Controllers
             _accountService = accountService;
         }
 
-        public IHttpActionResult Post(CreateAccountRequest request)
-        {
-            return Ok();   
-        }
+        //public IHttpActionResult Post(CreateAccountRequest request)
+        //{
+        //    return Ok();
+        //}
     }
 }

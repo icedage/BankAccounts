@@ -7,10 +7,12 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public interface IBankAccountLevelApprover
+    public interface IRequestAccountHandler
     {
-        BankAccountBenefits ProcessRequest(CustomerDto customer);
+        BankAccountBenefits Benefits { get; set; }
 
-        void SetSuccessor(BankAccountStatusApprover successor);
+        void ProcessRequest(CustomerDto customer);
+
+        IRequestAccountHandler Successor { get; set; }
     }
 }

@@ -10,18 +10,15 @@ using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public class GoldAccount : BankAccountStatusApprover
+    public class GoldAccount : IRequestAccountHandler
     {
-        private BankAccountBenefits _bankAccountApproval;
+        public IRequestAccountHandler Successor { get; set; }
 
-        public GoldAccount()
-        {
-            _bankAccountApproval = new BankAccountBenefits();
-        }
+        public BankAccountBenefits Benefits { get; set; }
 
-        public override BankAccountBenefits ProcessRequest(CustomerDto customer)
+        public void ProcessRequest(CustomerDto customer)
         {
-            _bankAccountApproval.GoldAccountBenefits.AABreakdownCover = new AABreakdownCover()
+            Benefits.GoldAccountBenefits.AABreakdownCover = new AABreakdownCover()
             {
                 IncludesAccidentalManagement = true,
                 IncludesRoadSideAssistance = true,
@@ -33,7 +30,7 @@ namespace BankAccounts.Services.BankAccounts
                     }
             };
 
-            _bankAccountApproval.GoldAccountBenefits.EuropeanTravelInsurance = new WorldWideTravelInsurance()
+            Benefits.GoldAccountBenefits.EuropeanTravelInsurance = new WorldWideTravelInsurance()
             {
                 BuggageCover=250,
                 CancellationTravel=400,
@@ -43,21 +40,21 @@ namespace BankAccounts.Services.BankAccounts
                 TravelDays=45
             };
 
-            _bankAccountApproval.GoldAccountBenefits.IncludesCheckBook = true;
-            _bankAccountApproval.GoldAccountBenefits.IncludesInternetBanking = true;
-            _bankAccountApproval.GoldAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
+            Benefits.GoldAccountBenefits.IncludesCheckBook = true;
+            Benefits.GoldAccountBenefits.IncludesInternetBanking = true;
+            Benefits.GoldAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
                                                                                                                 MaximumRetailCostCover = 500,
                                                                                                                 UnauthorisedCallsForContractsCover = 1000,
                                                                                                                 UnauthorisedCallsForPayAsYouGoCover = 300
                                                                                                            };
-            _bankAccountApproval.GoldAccountBenefits.Overdraft = new Overdraft() {
+            Benefits.GoldAccountBenefits.Overdraft = new Overdraft() {
                                                                                     IncludesGracePeriod = true,
                                                                                     IncludesOverdraftBuffer = true,
                                                                                     OverdraftBalance = 3000,
                                                                                     PerdayCharges = 2.5M
                                                                                   };
 
-            _bankAccountApproval.GoldAccountBenefits.SentinelCardProtection = new SentinelCardProtection() {
+            Benefits.GoldAccountBenefits.SentinelCardProtection = new SentinelCardProtection() {
                                                                                                                     Claims = 2500,
                                                                                                                     EmergencyCash = 3000,
                                                                                                                     HotelBillsOverseas = 1500,
@@ -65,8 +62,6 @@ namespace BankAccounts.Services.BankAccounts
                                                                                                                     IncludesReplacements = true,
                                                                                                                     MedicalAssistanceInAbroad = 300000
                                                                                                                 };
-
-            return _bankAccountApproval;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace BankAccounts.Services.BankAccounts
 {
     public enum BankAccountStatus
     {
-        Classic =1,
-        Silver =2,
-        Gold =3
+        Classic = 1,
+        Silver = 2,
+        Gold = 3
     }
 }

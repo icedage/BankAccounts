@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Services", "Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiresiasAPI", "TiresiasAPI\TiresiasAPI.csproj", "{2AA5AB81-0706-4E77-A323-7F87758C8802}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountsAPI", "BankAccountsAPI\BankAccountsAPI.csproj", "{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsAPI", "BankAccountsAPI\AccountsAPI.csproj", "{CFF1789F-567B-4E72-ACFD-6EB6108FE7BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
