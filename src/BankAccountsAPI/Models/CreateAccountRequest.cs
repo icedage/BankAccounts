@@ -9,6 +9,6 @@ namespace BankAccountsAPI.Models
     {
         public int CustomerId { get; set; }
 
-        public decimal Score { get; set; }
+        public CustomerFinancialDetails FinancialDetails { get; set; }
     }
 }

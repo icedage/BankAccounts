@@ -8,8 +8,6 @@ namespace BankAccounts.Services.Dtos
 {
     public class Overdraft
     {
-        public decimal OverdraftBalance { get; set; }
-
         public decimal OverDraftBalance { get; set; }
 
         public decimal PerdayCharges { get; set; }

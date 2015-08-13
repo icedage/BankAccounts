@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BankAccounts.Contracts;
 using BankAccounts.Repository.Entities;
 using BankAccounts.Services.AccountBenefits;
 using BankAccounts.Services.AccountBenefits.Gold;
@@ -56,7 +57,6 @@ namespace BankAccounts.Services.BankAccounts
             Benefits.SilverAccountBenefits.Overdraft = new Overdraft() {
                                                                                     IncludesGracePeriod = true,
                                                                                     IncludesOverdraftBuffer = true,
-                                                                                    OverdraftBalance = 3000,
                                                                                     PerdayCharges = 2.5M
                                                                                   };
 

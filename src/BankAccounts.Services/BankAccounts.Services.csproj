@@ -47,18 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountBenefits\Classic\ClassicAccountBenefits.cs" />
-    <Compile Include="AccountBenefits\Common\AABreakdownCover.cs" />
-    <Compile Include="AccountBenefits\Gold\GoldAccountBenefits.cs" />
-    <Compile Include="AccountBenefits\Gold\WorldWideTravelInsurance.cs" />
-    <Compile Include="AccountBenefits\Common\MobilePhoneInsurance.cs" />
-    <Compile Include="AccountBenefits\Common\SentinelCardProtection.cs" />
-    <Compile Include="AccountBenefits\Common\UpgradeOptions.cs" />
-    <Compile Include="AccountBenefits\Silver\EuropeanTravelInsurance.cs" />
-    <Compile Include="AccountBenefits\Silver\SilverAccountBenefits.cs" />
     <Compile Include="app.cs" />
-    <Compile Include="BankAccounts\BankAccountBenefits.cs" />
-    <Compile Include="BankAccounts\BankAccountStatus.cs" />
     <Compile Include="BankAccounts\ClassicAccount.cs" />
     <Compile Include="BankAccounts\GoldAccount.cs" />
     <Compile Include="BankAccounts\IRequestHandler.cs" />
@@ -68,7 +57,6 @@
     <Compile Include="Dtos\AddressDto.cs" />
     <Compile Include="Dtos\CreditReportDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
-    <Compile Include="AccountBenefits\Common\Overdraft.cs" />
     <Compile Include="Dtos\CutomerAccountDto.cs" />
     <Compile Include="Dtos\DefaultDto.cs" />
     <Compile Include="Dtos\Status.cs" />
@@ -84,6 +72,10 @@
     <Compile Include="Services\Customers\ICustomerService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BankAccounts.Contracts\BankAccounts.Contracts.csproj">
+      <Project>{dc10f61b-ad8e-4a70-ba89-b0f9b4c5d9d8}</Project>
+      <Name>BankAccounts.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BankAccounts.Repository\BankAccounts.Repository.csproj">
       <Project>{08619679-e39c-4057-9a73-2907d7b2a105}</Project>
       <Name>BankAccounts.Repository</Name>

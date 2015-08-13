@@ -7,17 +7,10 @@ using BankAccounts.Services.AccountBenefits;
 using BankAccounts.Services.AccountBenefits.Classic;
 using BankAccounts.Services.AccountBenefits.Gold;
 
-namespace BankAccounts.Services.BankAccounts
+namespace BankAccounts.Contracts
 {
     public class BankAccountBenefits
     {
-        public BankAccountBenefits()
-        {
-            ClassicAccountBenefits = new ClassicAccountBenefits();
-            SilverAccountBenefits = new SilverAccountBenefits();
-            GoldAccountBenefits = new GoldAccountBenefits();
-        }
-
         public BankAccountStatus Status { get; set; }
 
         public ClassicAccountBenefits ClassicAccountBenefits { get; set; }

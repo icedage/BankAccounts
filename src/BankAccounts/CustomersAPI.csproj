@@ -208,6 +208,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ModelFactory.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Helpers\IHttpClient.cs" />
     <Compile Include="Identity\AuthContext.cs" />
     <Compile Include="Identity\AuthRepository.cs" />
     <Compile Include="Identity\UserModel.cs" />

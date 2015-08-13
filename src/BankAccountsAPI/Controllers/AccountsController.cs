@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BankAccounts.Repository.Entities;
 
 namespace BankAccountsAPI.Controllers
 {
@@ -18,9 +19,16 @@ namespace BankAccountsAPI.Controllers
             _accountService = accountService;
         }
 
-        //public IHttpActionResult Post(CreateAccountRequest request)
-        //{
-        //    return Ok();
-        //}
+        [HttpPost]
+        public IHttpActionResult Post(CreateAccountRequest request)
+        {
+            var customer = new CustomerDto() {  CustomerId=request.CustomerId ,
+                                                AnnualNetSalary= request.FinancialDetails.AnnualNetIncome
+                                             };
+
+            _accountService.CreateAccount(customer);
+
+            return Ok();
+        }
     }
 }

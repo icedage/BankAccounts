@@ -27,7 +27,7 @@ namespace BankAccountsAPI.Controllers
         {
             try
             {
-                var customerDto = new CustomerDto() { 
+                var customerDto = new CustomerDto() {
                                                         FirstName = customerDetails.FirstName,
                                                         LastName = customerDetails.LastName,
                                                         DoB = customerDetails.BirthDate,
@@ -41,6 +41,18 @@ namespace BankAccountsAPI.Controllers
 
                 var customer = _customerService.CreateCustomer(customerDto);
 
+                var pairs = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("login", "abc")
+                };
+
+                var content = new FormUrlEncodedContent(pairs);
+
+                var client = new HttpClient {BaseAddress = new Uri("http://localhost:6740")};
+
+                // call sync
+                var response = await client.PostAsync("/api/membership/exist", content);
+
                 return Ok();
             }
             catch (Exception ex)
@@ -48,7 +60,7 @@ namespace BankAccountsAPI.Controllers
                 //Log exception
                 return BadRequest("Server error");
             }
-            
+
         }
     }
 }
