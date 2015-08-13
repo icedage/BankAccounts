@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 using BankAccounts.Repository.Entities;
 using BankAccounts.Repository.Repositories;
 using BankAccounts.Services.BankAccounts;
+using BankAccounts.Repository;
 
 namespace BankAccounts.Services.Services
 {
     public class AccountService : IAccountService
     {
         private IAccountDetailsService _accountDetailsService;
-        private IAccountsRepository _accountsRepository;
+        private IRepository<Account> _accountsRepository;
 
-        public AccountService(IAccountDetailsService accountDetailsService, IAccountsRepository accountsRepository)
+        public AccountService(IAccountDetailsService accountDetailsService, IRepository<Account> accountsRepository)
         {
             _accountDetailsService = accountDetailsService;
             _accountsRepository = accountsRepository;
@@ -36,7 +37,7 @@ namespace BankAccounts.Services.Services
                                         };
 
             //Repository
-            _accountsRepository.CreateAccount(account);
+            _accountsRepository.Add(account);
         }
 
         private IRequestAccountHandler ChainOfAccountsInitializer()

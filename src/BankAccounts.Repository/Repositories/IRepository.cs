@@ -7,16 +7,16 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Repository
 {
-    public interface ICustomerRepository
+    public interface IRepository<T> where T : class
     {
-        IEnumerable<Customer> GetAll();
+        List<T> GetAll();
 
-        Customer Get(int customerId);
+        T Get(int customerId);
 
-        int Add(Customer customer);
+        int Add(T customer);
 
         bool Remove(string id);
 
-        bool Update(Customer customer);
+        bool Update(T customer);
     }
 }

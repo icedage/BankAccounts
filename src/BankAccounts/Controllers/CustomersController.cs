@@ -22,6 +22,19 @@ namespace BankAccountsAPI.Controllers
             _customerService = customerService;
         }
 
+        [HttpGet]
+        public async Task<IHttpActionResult> Get()
+        {
+            var customers= _customerService.GetAll();
+            return Ok(customers);
+        }
+
+
+        public async Task<IHttpActionResult> Put()
+        {
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<IHttpActionResult> Post(CustomerDetails customerDetails)
         {

@@ -10,7 +10,7 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccounts.Repository
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : IRepository<Customer>
     {
         private SqlCommand _sqlCommand;
         private SqlConnection _sqlConnection;
@@ -20,7 +20,7 @@ namespace BankAccounts.Repository
             _sqlConnection = new SqlConnection("Server=(local);DataBase=Northwind;Integrated Security=SSPI");
         }
 
-        public IEnumerable<Customer> GetAll()
+        public List<Customer> GetAll()
         {
             throw new NotImplementedException();
         }
