@@ -12,14 +12,14 @@ namespace GatewayAPI
         public static void Main(string[] args)
         { 
             // Without Authorization
-            var wrapper = new RestSharpWrapper();
+            //var wrapper = new RestSharpWrapper();
 
             //With Authorization
             var authorizewrapper = new RequestAuthenticator();
             authorizewrapper.AddBearerToken();
 
-            wrapper.SetComponent(authorizewrapper);
-            wrapper.Test("http://www.google.com", Method.POST);
+            //wrapper.SetComponent(authorizewrapper);
+            //wrapper.Test("http://www.google.com", Method.POST);
            // wrapper.AddHeader1();
 
         }

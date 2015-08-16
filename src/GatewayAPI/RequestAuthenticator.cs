@@ -17,15 +17,15 @@ namespace GatewayAPI
             Request.AddHeader("Accept", "application/json");
             Request.AddHeader("Content-Type", "application/json");
             Request.AddHeader("Bearer-Token", "");
-            Execute();
+            //Execute();
         }
 
-        private void Execute()//<T>() where T : new()
-        {
-            var jsonDeserializer = new JsonDeserializer();
-           // var response = null;
-           // return jsonDeserializer.Deserialize<T>(response);
-           // return null;
-        }
+        //private T Execute<T>() where T : new()
+        //{
+        //    var jsonDeserializer = new JsonDeserializer();
+        //    //var response = Request.
+        //   // return jsonDeserializer.Deserialize<T>(response);
+        //   // return null;
+        //}
     }
 }
