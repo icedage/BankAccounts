@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BankAccounts.Contracts;
 using BankAccounts.Repository.Entities;
 using BankAccounts.Services.AccountBenefits;
 using BankAccounts.Services.AccountBenefits.Gold;
@@ -10,27 +11,22 @@ using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.BankAccounts
 {
-    public class SilverAccount: BankAccountStatusApprover
+    public class SilverAccount: IRequestAccountHandler
     {
-        private BankAccountBenefits _bankAccountApproval;
+        public BankAccountBenefits Benefits { get; set; }
 
-        public SilverAccount()
+        public void ProcessRequest(CustomerDto customer)
         {
-            _bankAccountApproval = new BankAccountBenefits();
-        }
-
-        public override BankAccountBenefits ProcessRequest(CustomerDto bankAccountApproval)
-        {
-            if(bankAccountApproval.AnnualGrossSalary >= 30000 || bankAccountApproval.AnnualGrossSalary < 65000)
+            if( customer.AnnualGrossSalary >= 30000 || customer.AnnualGrossSalary < 65000)
             {
-                _bankAccountApproval.SilverAccountBenefits.IncludesCheckBook = true;
-                _bankAccountApproval.SilverAccountBenefits.IncludesInternetBanking = true;
-                _bankAccountApproval.SilverAccountBenefits.Overdraft = new Overdraft() {  IncludesGracePeriod = true,
+                Benefits.SilverAccountBenefits.IncludesCheckBook = true;
+                Benefits.SilverAccountBenefits.IncludesInternetBanking = true;
+                Benefits.SilverAccountBenefits.Overdraft = new Overdraft() {  IncludesGracePeriod = true,
                                                                                            IncludesOverdraftBuffer = true,
                                                                                            OverDraftBalance = 100,
                                                                                            PerdayCharges = 1.5m
                                                                                         };
-            _bankAccountApproval.SilverAccountBenefits.AABreakdownCover = new AABreakdownCover()
+            Benefits.SilverAccountBenefits.AABreakdownCover = new AABreakdownCover()
             {
                 IncludesAccidentalManagement = true,
                 IncludesRoadSideAssistance = true,
@@ -42,7 +38,7 @@ namespace BankAccounts.Services.BankAccounts
                     }
             };
 
-            _bankAccountApproval.SilverAccountBenefits.EuropeanTravelInsurance = new EuropeanTravelInsurance()
+            Benefits.SilverAccountBenefits.EuropeanTravelInsurance = new EuropeanTravelInsurance()
             {
                 BuggageCover=100,
                 CancellationTravel=200,
@@ -51,21 +47,20 @@ namespace BankAccounts.Services.BankAccounts
                 TravelDays=30
             };
 
-            _bankAccountApproval.SilverAccountBenefits.IncludesCheckBook = true;
-            _bankAccountApproval.SilverAccountBenefits.IncludesInternetBanking = true;
-            _bankAccountApproval.SilverAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
+            Benefits.SilverAccountBenefits.IncludesCheckBook = true;
+            Benefits.SilverAccountBenefits.IncludesInternetBanking = true;
+            Benefits.SilverAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
                                                                                                                 MaximumRetailCostCover = 500,
                                                                                                                 UnauthorisedCallsForContractsCover = 1000,
                                                                                                                 UnauthorisedCallsForPayAsYouGoCover = 300
                                                                                                            };
-            _bankAccountApproval.SilverAccountBenefits.Overdraft = new Overdraft() {
+            Benefits.SilverAccountBenefits.Overdraft = new Overdraft() {
                                                                                     IncludesGracePeriod = true,
                                                                                     IncludesOverdraftBuffer = true,
-                                                                                    OverdraftBalance = 3000,
                                                                                     PerdayCharges = 2.5M
                                                                                   };
 
-            _bankAccountApproval.SilverAccountBenefits.SentinelCardProtection = new SentinelCardProtection() {
+            Benefits.SilverAccountBenefits.SentinelCardProtection = new SentinelCardProtection() {
                                                                                                                     Claims = 2500,
                                                                                                                     EmergencyCash = 3000,
                                                                                                                     HotelBillsOverseas = 1500,
@@ -76,9 +71,10 @@ namespace BankAccounts.Services.BankAccounts
             }
             else
             {
-                _bankAccountApproval = this._successor.ProcessRequest(bankAccountApproval);
+                Successor.ProcessRequest(customer);
             }
-            return _bankAccountApproval;
         }
+
+        public IRequestAccountHandler Successor { get; set; }
     }
 }
