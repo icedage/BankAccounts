@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GatewayAPI
 {
-    public abstract class RestSharpComponentDecorator : RestSharpComponent
+    public abstract class HttpRequestDecorator : RestSharpComponent
     {
         protected RestSharpComponent component;
         

@@ -9,16 +9,24 @@ using GatewayAPI.Entities;
 
 namespace GatewayAPI
 {
-    public class RequestAuthenticator : RestSharpComponent
+    public class HttpRequestAuthenticator : RestSharpComponent
     {
         private IRestRequest _restRequest;
 
-        public RequestAuthenticator()
+        public HttpRequestAuthenticator()
         {
-            _restRequest = new RestRequest();
+            _restRequest = new RestRequest("oauth/token", Method.POST);
         }
 
         public void TokenizeRequest(User user)
+        {
+            var token = GetToken(user);
+            Request.AddHeader("Accept", "application/json");
+            Request.AddHeader("Content-Type", "application/json");
+            Request.AddHeader("Authorization", string.Format("Bearer {0}", token));
+        }
+
+        private string GetToken(User user)
         {
             _restRequest.AddHeader("Accept", "application/json");
             _restRequest.AddHeader("Content-Type", "application/json");
@@ -27,10 +35,9 @@ namespace GatewayAPI
             _restRequest.AddHeader("grant_type", user.grant_type);
 
             var jsonDeserializer = new JsonDeserializer();
-            var response = Client.Execute<User>(Request);
-            var token = jsonDeserializer.Deserialize<User>(response);
-            Request.AddHeader("Authorization", string.Format("Bearer {0}", token));
-
+            var response = Client.Execute<User>(_restRequest);
+            var userResponse = jsonDeserializer.Deserialize<User>(response);
+            return userResponse.access_token;
         }
 
     }

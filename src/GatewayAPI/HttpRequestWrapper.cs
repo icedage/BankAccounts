@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace GatewayAPI
 {
-    public class RestSharpWrapper: RestSharpComponentDecorator
+    public class HttpRequestWrapper : HttpRequestDecorator
     {
-        public RestSharpWrapper(string url, Method method)
+        public HttpRequestWrapper(string url, Method method)
         {
             if (component == null)
             {
                 component.Client = new RestClient("http://localhost/BankAccountsAPI/");
-                component.Request = new RestRequest(url , method);
             }
+
+            component.Request = new RestRequest(url, method);
         }
 
         public void AddHeader(IDictionary<string,string> headers)
@@ -40,7 +41,7 @@ namespace GatewayAPI
         public T Execute<T>() where T : class
         {
             var jsonDeserializer = new JsonDeserializer();
-            var response = component.Request.Execute<T>(component.Request);
+            var response = component.Client.Execute(component.Request);
             return jsonDeserializer.Deserialize<T>(response);
         }
     }

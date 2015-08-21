@@ -1,2 +1,7 @@
 C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\GatewayAPI.exe.config
-C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.csprojResolveAssemblyReference.cache
+C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\GatewayAPI.exe
+C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\GatewayAPI.pdb
+C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\RestSharp.dll
+C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\RestSharp.xml
+C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.exe
+C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.pdb
