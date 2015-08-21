@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace GatewayAPI
 {
-    public class RestSharpWrapper<T>: RestSharpComponentDecorator
+    public class RestSharpWrapper: RestSharpComponentDecorator
     {
         public RestSharpWrapper(string url, Method method)
         {
             if (component == null)
             {
-                component.Request = new RestRequest(url,method);
                 component.Client = new RestClient("http://localhost/BankAccountsAPI/");
+                component.Request = new RestRequest(url , method);
             }
         }
 
@@ -37,13 +37,11 @@ namespace GatewayAPI
             component.Request.AddBody(entity);
         }
 
-        //public T Execute<T>(string url, Method method) where T : class, new()
-        //{
-        //    component.Request.Resource = url;
-        //    component.Request.Method = method;
-        //    var jsonDeserializer = new JsonDeserializer();
-        //    var response = component.Request.Execute<T>(component.Request);
-        //    return jsonDeserializer.Deserialize<T>(response);
-        //}
+        public T Execute<T>() where T : class
+        {
+            var jsonDeserializer = new JsonDeserializer();
+            var response = component.Request.Execute<T>(component.Request);
+            return jsonDeserializer.Deserialize<T>(response);
+        }
     }
 }

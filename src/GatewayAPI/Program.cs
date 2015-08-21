@@ -12,11 +12,11 @@ namespace GatewayAPI
         public static void Main(string[] args)
         { 
             // Without Authorization
-            //var wrapper = new RestSharpWrapper();
+            var wrapper = new RestSharpWrapper(string.Empty, Method.POST);
 
             //With Authorization
             var authorizewrapper = new RequestAuthenticator();
-            authorizewrapper.AddBearerToken();
+            var toekn = authorizewrapper.AddBearerToken();
 
             //wrapper.SetComponent(authorizewrapper);
             //wrapper.Test("http://www.google.com", Method.POST);

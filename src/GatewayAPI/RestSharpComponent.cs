@@ -16,7 +16,7 @@ namespace GatewayAPI
         public RestSharpComponent()
         {
             Client = new RestClient("http://localhost/BankAccountsAPI/");
-            Request = new RestRequest("/token", Method.POST);
+            Request = new RestRequest("oauth/token", Method.POST);
         }
     }
 }

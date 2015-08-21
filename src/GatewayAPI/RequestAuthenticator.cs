@@ -5,27 +5,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GatewayAPI.Entities;
 
 namespace GatewayAPI
 {
     public class RequestAuthenticator : RestSharpComponent
     {
-        public void AddBearerToken()
+        private IRestRequest _restRequest;
+
+        public RequestAuthenticator()
         {
-            //var bearerToken = Execute<User>();
-            
-            Request.AddHeader("Accept", "application/json");
-            Request.AddHeader("Content-Type", "application/json");
-            Request.AddHeader("Bearer-Token", "");
-            //Execute();
+            _restRequest = new RestRequest();
         }
 
-        //private T Execute<T>() where T : new()
-        //{
-        //    var jsonDeserializer = new JsonDeserializer();
-        //    //var response = Request.
-        //   // return jsonDeserializer.Deserialize<T>(response);
-        //   // return null;
-        //}
+        public void TokenizeRequest(User user)
+        {
+            _restRequest.AddHeader("Accept", "application/json");
+            _restRequest.AddHeader("Content-Type", "application/json");
+            _restRequest.AddHeader("username", user.Username);
+            _restRequest.AddHeader("password", user.Password);
+            _restRequest.AddHeader("grant_type", user.grant_type);
+
+            var jsonDeserializer = new JsonDeserializer();
+            var response = Client.Execute<User>(Request);
+            var token = jsonDeserializer.Deserialize<User>(response);
+            Request.AddHeader("Authorization", string.Format("Bearer {0}", token));
+
+        }
+
     }
 }
