@@ -9,6 +9,8 @@ namespace BankAccounts.Services.AccountBenefits.Classic
 {
     public class ClassicAccountBenefits
     {
+        public int AccountId { get; set; }
+
         public bool IncludesInternetBanking {get;set;}
 
         public bool IncludesCheckBook { get; set; }
