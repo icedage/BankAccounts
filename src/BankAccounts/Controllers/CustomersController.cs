@@ -29,6 +29,12 @@ namespace BankAccountsAPI.Controllers
             return Ok(customers);
         }
 
+        [HttpGet]
+        public async Task<IHttpActionResult> Get(Guid customerId)
+        {
+            var customers = _customerService.GetAll();
+            return Ok(customers);
+        }
 
         public async Task<IHttpActionResult> Put()
         {
@@ -38,8 +44,6 @@ namespace BankAccountsAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Post(CustomerDetails customerDetails)
         {
-            try
-            {
                 var customerDto = new CustomerDto() {
                                                         FirstName = customerDetails.FirstName,
                                                         LastName = customerDetails.LastName,
@@ -52,28 +56,20 @@ namespace BankAccountsAPI.Controllers
 
                 var report = await _creditReportService.GetCreditReport(customerDto);
 
-                var customer = _customerService.CreateCustomer(customerDto);
+                var customerID = _customerService.CreateCustomer(customerDto);
 
                 var pairs = new List<KeyValuePair<string, string>>
                 {
-                    new KeyValuePair<string, string>("login", "abc")
+                    new KeyValuePair<string, string>("CustomerId", customerID.ToString())
                 };
 
                 var content = new FormUrlEncodedContent(pairs);
 
                 var client = new HttpClient {BaseAddress = new Uri("http://localhost:6740")};
 
-                // call sync
-                var response = await client.PostAsync("/api/membership/exist", content);
+                var response = await client.PostAsync("/api/accounts", content);
 
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-                //Log exception
-                return BadRequest("Server error");
-            }
-
         }
     }
 }

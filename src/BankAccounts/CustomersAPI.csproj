@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -223,13 +224,16 @@
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Infrastructure\Configuration.cs" />
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\CreateRoleBindingModel.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
+    <Compile Include="Models\Requests\CustomerAccount.cs" />
     <Compile Include="Models\Requests\CustomerDetails.cs" />
     <Compile Include="Models\Response\BankAccountApproval.cs" />
     <Compile Include="Models\UsersInRoleModel.cs" />
     <Compile Include="Owin\Startup.cs" />
+    <Compile Include="Plumbing\ControllerInstaller.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Plumbing\WindsorHttpControllerActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,6 +262,10 @@
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BankAccounts.Contracts\BankAccounts.Contracts.csproj">
+      <Project>{dc10f61b-ad8e-4a70-ba89-b0f9b4c5d9d8}</Project>
+      <Name>BankAccounts.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BankAccounts.Repository\BankAccounts.Repository.csproj">
       <Project>{08619679-e39c-4057-9a73-2907d7b2a105}</Project>
       <Name>BankAccounts.Repository</Name>

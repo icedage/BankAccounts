@@ -1,12 +1,10 @@
 ﻿using BankAccounts.Repository.Entities;
 using BankAccounts.Services.Dtos;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using TiresiasAPI.Models;
 

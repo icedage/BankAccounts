@@ -52,12 +52,14 @@
   <ItemGroup>
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="GatewayController\GatewayController.cs" />
+    <Compile Include="GatewayController\IGatewayController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestAuthenticator.cs" />
+    <Compile Include="HttpRequestAuthenticator.cs" />
     <Compile Include="RestSharpComponent.cs" />
-    <Compile Include="RestSharpComponentDecorator.cs" />
-    <Compile Include="RestSharpWrapper.cs" />
+    <Compile Include="HttpRequestDecorator.cs" />
+    <Compile Include="HttpRequestWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
