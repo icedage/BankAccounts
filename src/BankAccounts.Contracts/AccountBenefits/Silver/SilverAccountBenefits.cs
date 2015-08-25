@@ -9,10 +9,12 @@ namespace BankAccounts.Services.AccountBenefits
 {
     public class SilverAccountBenefits
     {
+        public int AccountId { get; set; }
+
         public bool IncludesInternetBanking {get;set;}
 
         public bool IncludesCheckBook { get; set; }
-        
+
         public EuropeanTravelInsurance EuropeanTravelInsurance { get; set; }
 
         public AABreakdownCover AABreakdownCover { get; set; }

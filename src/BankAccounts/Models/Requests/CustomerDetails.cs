@@ -6,33 +6,42 @@ using System.Web;
 
 namespace BankAccountsAPI.Models.Requests
 {
-    public class CustomerDetails
+    public class CustomerDetails : IValidatableObject
     {
-        [Required]
-        public string PersonalId { get; set; }
+       public string PersonalId { get; set; }
 
-        [Required]
-        public string FirstName { get; set; }
+       public string FirstName { get; set; }
 
-        [Required]
-        public string LastName { get; set; }
+       public string LastName { get; set; }
 
-        [Required]
-        public string Nationality { get; set; }
+       public string Nationality { get; set; }
 
-        [Required]
-        public Address Address { get; set; }
+       public Address Address { get; set; }
 
-        [Required]
-        public string PostCode { get; set; }
+       public string PostCode { get; set; }
 
-        [Required]
-        public DateTime BirthDate { get; set; }
+       public DateTime BirthDate { get; set; }
 
-        [Required]
-        public decimal AnnualGrossSalary { get; set; }
+       public decimal AnnualGrossSalary { get; set; }
 
-        [Required]
-        public decimal AnnualNetSalary { get; set; }
+       public decimal AnnualNetSalary { get; set; }
+
+       public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+       {
+           if (string.IsNullOrEmpty(this.FirstName))
+               yield return new ValidationResult("FirstName is required");
+           if (string.IsNullOrEmpty(this.LastName))
+               yield return new ValidationResult("LastName is required");
+           if (string.IsNullOrEmpty(this.Nationality))
+               yield return new ValidationResult("Nationality is required");
+           if (string.IsNullOrEmpty(this.Address.PostCode))
+               yield return new ValidationResult("PostCode is required");
+           if (this.BirthDate==DateTime.MinValue)
+               yield return new ValidationResult("BirthDate is required");
+           if (AnnualGrossSalary==0)
+               yield return new ValidationResult("AnnualGrossSalary is required");
+           if (this.AnnualNetSalary==0)
+               yield return new ValidationResult("AnnualNetSalary is required");
+        }
     }
 }

@@ -12,7 +12,7 @@ using BankAccounts.Services.AccountBenefits.Gold;
 
 namespace BankAccounts.Repository.Repositories
 {
-    public class AccountsRepository : IAccountsRepository
+    public class AccountsRepository : IRepository<Account>
     {
         private SqlCommand _sqlCommand;
         private SqlConnection _sqlConnection;
@@ -22,7 +22,7 @@ namespace BankAccounts.Repository.Repositories
             _sqlConnection = new SqlConnection("Server=(local);DataBase=Northwind;Integrated Security=SSPI");
         }
 
-        public void CreateAccount(Account customer)
+        public int Add(Account customer)
         {
             try
             {
@@ -34,28 +34,9 @@ namespace BankAccounts.Repository.Repositories
                 _sqlCommand.Parameters.Add(new SqlParameter("@PersonalId", customer.SortCode));
 
                 var accountId = 0;
-
-                //switch(customer.Status)
-                //{
-                //    case AccountStatus.Classic:
-                //    {
-                //        CreateClassicAccountBenefits(accountId);
-                //        break;
-                //    }
-                //    case AccountStatus.Silver:
-                //    {
-                //        CreateSilverAccountBenefits(accountId);
-                //        break;
-                //    }
-                //    case AccountStatus.Gold:
-                //    {
-                //        CreateGoldAccountBenefits(accountId);
-                //        break;
-                //    }
-
-                //}
-
                 _sqlCommand.ExecuteNonQuery();
+                return accountId;
+               
             }
             finally
             {
@@ -63,23 +44,25 @@ namespace BankAccounts.Repository.Repositories
                 _sqlCommand.Dispose();
             }
         }
-
-        private void CreateClassicAccountBenefits(int bankAccountId, ClassicAccountBenefits classicAccountsbenefits)
+    
+        public List<Account> GetAll()
         {
-            try { }
-            finally { }
+            throw new NotImplementedException();
         }
 
-        private void CreateSilverAccountBenefits(int bankAccountId, SilverAccountBenefits silverAccountsbenefits)
+        public Account Get(int customerId)
         {
-            try { }
-            finally { }
+            throw new NotImplementedException();
         }
 
-        private void CreateGoldAccountBenefits(int bankAccountId, GoldAccountBenefits goldAccountsbenefits)
+        public bool Remove(string id)
         {
-            try { }
-            finally { }
+            throw new NotImplementedException();
+        }
+
+        public bool Update(Account customer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

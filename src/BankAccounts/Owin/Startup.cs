@@ -2,7 +2,10 @@
 using BankAccountsAPI;
 using BankAccountsAPI.Infrastructure;
 using BankAccountsAPI.Owin;
+using BankAccountsAPI.Plumbing;
 using BankAccountsAPI.Providers;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler.Encoder;
@@ -17,12 +20,15 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Dispatcher;
 
 [assembly: OwinStartup(typeof(Startup))]
 namespace BankAccountsAPI.Owin
 {
     public class Startup
     {
+        private static WindsorContainer _container;
 
         public void Configuration(IAppBuilder app)
         {
@@ -32,6 +38,8 @@ namespace BankAccountsAPI.Owin
             app.UseWebApi(config);
             ConfigureOAuthTokenGeneration(app);
             ConfigureOAuthTokenConsumption(app);
+            _container = new WindsorContainer();
+            RegisterContainer();
         }
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
@@ -80,6 +88,21 @@ namespace BankAccountsAPI.Owin
                         new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
                     }
                 });
+        }
+
+        private static void RegisterContainer()
+        {
+            //Add Web API controllers into CastleWindsor
+            _container.Register(AllTypes.FromThisAssembly()
+                                        .BasedOn<IHttpController>()
+                                        .WithService.DefaultInterfaces()
+                                        .Configure(c => c.LifestylePerWebRequest()));
+
+          
+
+            //Tie Castle.Windsor to WebAPI
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),
+                                                               new WindsorHttpControllerActivator(_container));
         }
     }
 }
