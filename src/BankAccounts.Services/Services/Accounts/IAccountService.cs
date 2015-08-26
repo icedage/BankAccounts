@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankAccounts.Repository.Entities;
+using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.Services
 {
     public interface IAccountService
     {
-        void CreateAccount(CustomerDto customer);
+        AccountDto CreateAccount(CustomerDto customer);
     }
 }

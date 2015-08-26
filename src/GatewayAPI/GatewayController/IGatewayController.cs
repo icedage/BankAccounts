@@ -7,6 +7,6 @@ namespace GatewayAPI.GatewayController
     {
         IList<Customer> Customers();
 
-        int CreateCustomer(Customer customer);
+        Account CreateCustomer(Customer customer);
     }
 }

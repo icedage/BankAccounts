@@ -7,6 +7,7 @@ using BankAccounts.Repository.Entities;
 using BankAccounts.Repository.Repositories;
 using BankAccounts.Services.BankAccounts;
 using BankAccounts.Repository;
+using BankAccounts.Services.Dtos;
 
 namespace BankAccounts.Services.Services
 {
@@ -21,23 +22,30 @@ namespace BankAccounts.Services.Services
             _accountsRepository = accountsRepository;
         }
 
-        public void CreateAccount(CustomerDto customer)
+        public AccountDto CreateAccount(CustomerDto customer)
         {
             //Account Credentials
             var accountDetails = _accountDetailsService.GetAccount();
 
-            //Benefits
-            var handler = ChainOfAccountsInitializer();
-            handler.ProcessRequest(customer);
-            var benefits = handler.Benefits;
+            ////Benefits
+            //var handler = ChainOfAccountsInitializer();
+            //handler.ProcessRequest(customer);
+            //var benefits = handler.Benefits;
 
-            var account = new Account() {   CustomerId=customer.CustomerId,
-                                            AccountNumber=accountDetails.AccountNumber,
-                                            SortCode= accountDetails.SortCode
-                                        };
+            var account = new Account()
+            {
+                CustomerId = customer.CustomerId,
+                AccountNumber = accountDetails.AccountNumber,
+                SortCode = accountDetails.SortCode
+            };
 
             //Repository
-            _accountsRepository.Add(account);
+            var accountId = _accountsRepository.Add(account);
+
+            return new AccountDto {     AccountId=accountId,
+                                        AccountNumber=account.AccountNumber,
+                                        SortCode=account.SortCode,
+                                        CustomerId=customer.CustomerId};
         }
 
         private IRequestAccountHandler ChainOfAccountsInitializer()

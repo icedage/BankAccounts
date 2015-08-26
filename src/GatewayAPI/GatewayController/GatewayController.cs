@@ -17,9 +17,16 @@ namespace GatewayAPI.GatewayController
             _restSharpComponent = new HttpRequestAuthenticator();
         }
 
-        public int CreateCustomer(Customer customer)
+        public Account CreateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            //username
+            //password
+            _restSharpComponent.TokenizeRequest(new User());
+            _wrapper = new HttpRequestWrapper("", RestSharp.Method.POST);
+            _wrapper.SetComponent(_restSharpComponent);
+             var account = _wrapper.Execute<Account>();
+
+            return account;
         }
 
         public IList<Customer> Customers()

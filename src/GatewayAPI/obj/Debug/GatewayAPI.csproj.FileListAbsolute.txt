@@ -13,3 +13,4 @@ C:\DotNet\BankAccounts\src\GatewayAPI\bin\Debug\RestSharp.dll
 C:\DotNet\BankAccounts\src\GatewayAPI\bin\Debug\RestSharp.xml
 C:\DotNet\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.exe
 C:\DotNet\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.pdb
+C:\DotNet\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.csprojResolveAssemblyReference.cache

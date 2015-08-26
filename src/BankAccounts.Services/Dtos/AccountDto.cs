@@ -11,5 +11,9 @@ namespace BankAccounts.Services.Dtos
         public int SortCode { get; set; }
 
         public int AccountNumber { get; set; }
+
+        public int AccountId { get; set; }
+
+        public int CustomerId { get; set; }
     }
 }

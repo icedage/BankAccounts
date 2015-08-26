@@ -64,7 +64,7 @@ namespace BankAccountsAPI.Controllers
                 };
 
                 var content = new FormUrlEncodedContent(pairs);
-
+                string t = (content != null) ? "test" : string.Empty;
                 var client = new HttpClient {BaseAddress = new Uri("http://localhost:6740")};
 
                 var response = await client.PostAsync("/api/accounts", content);
