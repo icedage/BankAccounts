@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
-using BankAccounts.Identity.Infrastructure;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using BankAccounts.Identity;
 
-namespace BankAccountsAPI.Infrastructure
+namespace BankAccountsAPI.Identity
 {
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
@@ -26,25 +26,24 @@ namespace BankAccountsAPI.Infrastructure
 
             var user = new ApplicationUser()
             {
-                UserName = "SuperPowerUser",
-                Email = "taiseer.joudeh@gmail.com",
+                UserName = "SuperUser",
+                Email = "IcewindDale@gmail.com",
                 EmailConfirmed = true,
-                FirstName = "Taiseer",
-                LastName = "Joudeh",
+                FirstName = "Veronica",
+                LastName = "Zotali",
                 Level = 1,
                 JoinDate = DateTime.Now.AddYears(-3)
             };
 
-            manager.Create(user, "MySuperP@ss!");
+            manager.Create(user, "P@ssword123");
 
             if (roleManager.Roles.Count() == 0)
             {
-                roleManager.Create(new IdentityRole { Name = "SuperAdmin" });
+                roleManager.Create(new IdentityRole { Name = "SystemUser" });
                 roleManager.Create(new IdentityRole { Name = "Admin"});
-                roleManager.Create(new IdentityRole { Name = "User"});
             }
 
-            var adminUser = manager.FindByName("SuperPowerUser");
+            var adminUser = manager.FindByName("SuperUser");
 
             foreach(var role in roleManager.Roles)
             {

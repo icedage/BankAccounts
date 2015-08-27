@@ -29,7 +29,8 @@ namespace BankAccountsAPI.Controllers
 
         }
 
-        [Route("", Name = "GetAllRoles")]
+        [Route("Get", Name = "GetAllRoles")]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult GetAllRoles()
         {
             var roles = this.AppRoleManager.Roles;
@@ -38,6 +39,7 @@ namespace BankAccountsAPI.Controllers
         }
 
         [Route("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> Create(CreateRoleBindingModel model)
         {
             if (!ModelState.IsValid)
@@ -61,6 +63,7 @@ namespace BankAccountsAPI.Controllers
         }
 
         [Route("{id:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> DeleteRole(string Id)
         {
 

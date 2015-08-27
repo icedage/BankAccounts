@@ -1,4 +1,4 @@
-﻿using BankAccounts.Identity.Infrastructure;
+﻿using BankAccounts.Identity;
 using BankAccountsAPI.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,17 +12,18 @@ using System.Web.Http;
 namespace BankAccountsAPI.Controllers
 {
     [RoutePrefix("api/accounts")]
-    public class AccountsController : BaseApiController
+    public class UsersController : BaseApiController
     {
 
         [Route("users")]
-        [HttpGet] 
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult GetUsers()
         {
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
         [Route("user/{id:guid}", Name = "GetUserById")]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.AppUserManager.FindByIdAsync(Id);
@@ -37,6 +38,7 @@ namespace BankAccountsAPI.Controllers
         }
 
         [Route("user/{username}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> GetUserByName(string username)
         {
             var user = await this.AppUserManager.FindByNameAsync(username);
@@ -47,10 +49,10 @@ namespace BankAccountsAPI.Controllers
             }
 
             return NotFound();
-
         }
 
         [Route("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {
             if (!ModelState.IsValid)

@@ -1,4 +1,4 @@
-﻿using BankAccountsAPI.Infrastructure;
+﻿
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
+using BankAccountsAPI.Identity;
 
 namespace BankAccountsAPI.Controllers
 {
@@ -14,6 +15,7 @@ namespace BankAccountsAPI.Controllers
     {
         private ModelFactory _modelFactory;
         private ApplicationUserManager _AppUserManager = null;
+        private ApplicationRoleManager _AppRoleManager = null;
 
         public BaseApiController()
         {
@@ -26,6 +28,15 @@ namespace BankAccountsAPI.Controllers
                 return _AppUserManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
+
+        protected ApplicationRoleManager AppRoleManager
+        {
+            get
+            {
+                return _AppRoleManager ?? Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
+            }
+        }
+
 
         protected ModelFactory TheModelFactory
         {
@@ -66,16 +77,6 @@ namespace BankAccountsAPI.Controllers
             }
 
             return null;
-        }
-
-        private ApplicationRoleManager _AppRoleManager = null;
-
-        protected ApplicationRoleManager AppRoleManager
-        {
-            get
-            {
-                return _AppRoleManager ?? Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
-            }
         }
     }
 }

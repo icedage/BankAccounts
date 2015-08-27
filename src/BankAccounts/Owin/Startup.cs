@@ -1,6 +1,6 @@
-﻿using BankAccounts.Identity.Infrastructure;
+﻿using BankAccounts.Identity;
 using BankAccountsAPI;
-using BankAccountsAPI.Infrastructure;
+using BankAccountsAPI.Identity;
 using BankAccountsAPI.Owin;
 using BankAccountsAPI.Plumbing;
 using BankAccountsAPI.Providers;
@@ -98,7 +98,7 @@ namespace BankAccountsAPI.Owin
                                         .WithService.DefaultInterfaces()
                                         .Configure(c => c.LifestylePerWebRequest()));
 
-          
+
 
             //Tie Castle.Windsor to WebAPI
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),

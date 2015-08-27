@@ -209,21 +209,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ModelFactory.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Helpers\IHttpClient.cs" />
-    <Compile Include="Identity\AuthContext.cs" />
-    <Compile Include="Identity\AuthRepository.cs" />
-    <Compile Include="Identity\UserModel.cs" />
-    <Compile Include="Infrastructure\ApplicationDbContext.cs" />
-    <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
-    <Compile Include="Infrastructure\ApplicationUser.cs" />
-    <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Infrastructure\Configuration.cs" />
+    <Compile Include="Identity\ApplicationDbContext.cs" />
+    <Compile Include="Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\CreateRoleBindingModel.cs" />
@@ -233,13 +229,12 @@
     <Compile Include="Models\Response\BankAccountApproval.cs" />
     <Compile Include="Models\UsersInRoleModel.cs" />
     <Compile Include="Owin\Startup.cs" />
-    <Compile Include="Plumbing\ControllerInstaller.cs" />
-    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
-    <Compile Include="Plumbing\WindsorHttpControllerActivator.cs" />
+    <Compile Include="Infrastructure\ControllerInstaller.cs" />
+    <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
+    <Compile Include="Infrastructure\WindsorHttpControllerActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CustomJwtFormat.cs" />
     <Compile Include="Providers\CustomOAuthProvider.cs" />
-    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

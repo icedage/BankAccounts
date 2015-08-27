@@ -1,4 +1,4 @@
-﻿using BankAccounts.Identity.Infrastructure;
+﻿using BankAccounts.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BankAccountsAPI.Infrastructure
+namespace BankAccountsAPI.Identity
 {
     public class ApplicationRoleManager : RoleManager<IdentityRole>
     {

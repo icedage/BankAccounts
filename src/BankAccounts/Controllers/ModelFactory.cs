@@ -1,5 +1,5 @@
-﻿using BankAccounts.Identity.Infrastructure;
-using BankAccountsAPI.Infrastructure;
+﻿using BankAccounts.Identity;
+using BankAccountsAPI.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
