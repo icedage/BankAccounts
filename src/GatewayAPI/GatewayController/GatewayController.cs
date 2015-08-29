@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GatewayAPI.Entities;
+using RestSharp;
+using System.Configuration;
 
 namespace GatewayAPI.GatewayController
 {
@@ -19,26 +21,20 @@ namespace GatewayAPI.GatewayController
 
         public Account CreateCustomer(Customer customer)
         {
-            //username
-            //password
-            _restSharpComponent.TokenizeRequest(new User());
-            _wrapper = new HttpRequestWrapper("", RestSharp.Method.POST);
+            _restSharpComponent.TokenizeRequest(new User() { Username = "SuperUser", Password = "P@ssword123", grant_type="password" });
+            _wrapper = new HttpRequestWrapper(ConfigurationManager.AppSettings["CustomersAPI"], Method.POST);
             _wrapper.SetComponent(_restSharpComponent);
-             var account = _wrapper.Execute<Account>();
-
+            _wrapper.AddBody(customer);
+            var account = _wrapper.Execute<Account>();
             return account;
         }
 
         public IList<Customer> Customers()
         {
             _restSharpComponent.TokenizeRequest(new User());
-
-            _wrapper = new HttpRequestWrapper("",RestSharp.Method.POST);
-
+            _wrapper = new HttpRequestWrapper(ConfigurationManager.AppSettings["CustomersAPI"], RestSharp.Method.POST);
             _wrapper.SetComponent(_restSharpComponent);
-
             var customers = _wrapper.Execute<List<Customer>>();
-
             return customers;
         }
     }

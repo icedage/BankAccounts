@@ -19,8 +19,20 @@ namespace BankAccounts.Presentation.Presenters
 
         public AccountDetailsModel ApplyForAccount(BankAccountModel account)
         {
-            _gatewayController.CreateCustomer(new Customer() { });
-            throw new NotImplementedException();
+            var accountDetails= _gatewayController.CreateCustomer(new Customer() {  AnnualGrossSalary= account.AnnualGrossSalary,
+                                                                                    AnnualNetSalary = account.AnnualNetSalary,
+                                                                                    BirthDate = account.BirthDate,
+                                                                                    FirstName= account.FirstName,
+                                                                                    LastName = account.LastName,
+                                                                                    Nationality=account.Nationality,
+                                                                                    PersonalId= account.PersonalId,
+                                                                                    PostCode= account.PostCode
+                                                                                });
+            return new AccountDetailsModel()
+            {
+                AccountNo = accountDetails.AccountNo,
+                SortCode = accountDetails.SortCode
+            };
         }
     }
 }
