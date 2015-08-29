@@ -1,4 +1,5 @@
 ﻿using BankAccounts.Presentation.Models;
+using BankAccounts.Presentation.Presenters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace BankAccounts.Presentation.Controllers
 {
     public class BankAccountController : Controller
     {
+        private IBankAccountPresenter _bankAccountPresenter;
+
+        public BankAccountController(IBankAccountPresenter bankAccountPresenter)
+        {
+            _bankAccountPresenter = bankAccountPresenter;
+        }
         // GET: BankAccount
         public ActionResult Index()
         {
@@ -30,12 +37,12 @@ namespace BankAccounts.Presentation.Controllers
 
         // POST: BankAccount/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(BankAccountModel bankAccountModel)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                var accountDetails = _bankAccountPresenter.ApplyForAccount(bankAccountModel);
                 return RedirectToAction("Index");
             }
             catch

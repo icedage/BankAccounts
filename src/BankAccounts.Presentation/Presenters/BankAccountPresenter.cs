@@ -1,10 +1,6 @@
 ﻿using BankAccounts.Presentation.Models;
 using GatewayAPI.Entities;
 using GatewayAPI.GatewayController;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace BankAccounts.Presentation.Presenters
 {
@@ -17,10 +13,19 @@ namespace BankAccounts.Presentation.Presenters
             _gatewayController = gatewayController;
         }
 
-        public AccountDetailsModel ApplyForAccount(BankAccountModel account)
+        public AccountDetailsModel ApplyForAccount(BankAccountModel bankAccount)
         {
-            _gatewayController.CreateCustomer(new Customer() { });
-            throw new NotImplementedException();
+            var account = _gatewayController.CreateCustomer(new Customer() {
+                                                               AnnualGrossSalary = bankAccount.AnnualGrossSalary,
+                                                               AnnualNetSalary = bankAccount.AnnualNetSalary,
+                                                               BirthDate = bankAccount.BirthDate,
+                                                               FirstName = bankAccount.FirstName,
+                                                               LastName = bankAccount.LastName,
+                                                               Nationality = bankAccount.Nationality,
+                                                               PersonalId = bankAccount.PersonalId,
+                                                               PostCode = bankAccount.PostCode
+                                                             });
+            return new AccountDetailsModel() { AccountNo = account.AccountNo, SortCode = account.SortCode };
         }
     }
 }

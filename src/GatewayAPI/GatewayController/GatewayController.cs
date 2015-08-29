@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GatewayAPI.Entities;
+using RestSharp;
 
 namespace GatewayAPI.GatewayController
 {
@@ -19,26 +16,23 @@ namespace GatewayAPI.GatewayController
 
         public Account CreateCustomer(Customer customer)
         {
-            //username
-            //password
-            _restSharpComponent.TokenizeRequest(new User());
-            _wrapper = new HttpRequestWrapper("", RestSharp.Method.POST);
+            //username & password will be both retrieved by login process
+            _restSharpComponent.TokenizeRequest(new User() { Username="",
+                                                             Password ="",
+                                                             grant_type ="password"
+                                                            });
+            _wrapper = new HttpRequestWrapper("http://localhost:51313/api/", Method.POST);
             _wrapper.SetComponent(_restSharpComponent);
-             var account = _wrapper.Execute<Account>();
-
+            var account = _wrapper.Execute<Account>();
             return account;
         }
 
         public IList<Customer> Customers()
         {
             _restSharpComponent.TokenizeRequest(new User());
-
             _wrapper = new HttpRequestWrapper("",RestSharp.Method.POST);
-
             _wrapper.SetComponent(_restSharpComponent);
-
             var customers = _wrapper.Execute<List<Customer>>();
-
             return customers;
         }
     }
