@@ -22,7 +22,6 @@ namespace BankAccountsAPI.Identity
         {
             var appDbContext = context.Get<ApplicationDbContext>();
             var appUserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(appDbContext));
-
             return appUserManager;
         }
     }

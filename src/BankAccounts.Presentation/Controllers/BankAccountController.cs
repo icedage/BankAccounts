@@ -10,12 +10,14 @@ namespace BankAccounts.Presentation.Controllers
 {
     public class BankAccountController : Controller
     {
+
         private IBankAccountPresenter _bankAccountPresenter;
 
         public BankAccountController(IBankAccountPresenter bankAccountPresenter)
         {
             _bankAccountPresenter = bankAccountPresenter;
         }
+        
         // GET: BankAccount
         public ActionResult Index()
         {
@@ -43,6 +45,9 @@ namespace BankAccounts.Presentation.Controllers
             {
                 // TODO: Add insert logic here
                 var accountDetails = _bankAccountPresenter.ApplyForAccount(bankAccountModel);
+
+                var account = _bankAccountPresenter.ApplyForAccount(bankAccountModel);
+
                 return RedirectToAction("Index");
             }
             catch

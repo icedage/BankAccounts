@@ -15,6 +15,7 @@ namespace BankAccounts.Presentation.Presenters
 
         public AccountDetailsModel ApplyForAccount(BankAccountModel bankAccount)
         {
+
             var account = _gatewayController.CreateCustomer(new Customer() {
                                                                AnnualGrossSalary = bankAccount.AnnualGrossSalary,
                                                                AnnualNetSalary = bankAccount.AnnualNetSalary,
@@ -25,7 +26,11 @@ namespace BankAccounts.Presentation.Presenters
                                                                PersonalId = bankAccount.PersonalId,
                                                                PostCode = bankAccount.PostCode
                                                              });
-            return new AccountDetailsModel() { AccountNo = account.AccountNo, SortCode = account.SortCode };
+            return new AccountDetailsModel()
+            {
+                AccountNo = account.AccountNo,
+                SortCode = account.SortCode
+            };
         }
     }
 }

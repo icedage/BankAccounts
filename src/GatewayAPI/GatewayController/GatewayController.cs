@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GatewayAPI.Entities;
 using RestSharp;
+using System.Configuration;
 
 namespace GatewayAPI.GatewayController
 {
@@ -16,6 +17,7 @@ namespace GatewayAPI.GatewayController
 
         public Account CreateCustomer(Customer customer)
         {
+
             //username & password will be both retrieved by login process
             _restSharpComponent.TokenizeRequest(new User() { Username="",
                                                              Password ="",
@@ -23,6 +25,12 @@ namespace GatewayAPI.GatewayController
                                                             });
             _wrapper = new HttpRequestWrapper("http://localhost:51313/api/", Method.POST);
             _wrapper.SetComponent(_restSharpComponent);
+
+            _restSharpComponent.TokenizeRequest(new User() { Username = "SuperUser", Password = "P@ssword123", grant_type="password" });
+            _wrapper = new HttpRequestWrapper(ConfigurationManager.AppSettings["CustomersAPI"], Method.POST);
+            _wrapper.SetComponent(_restSharpComponent);
+            _wrapper.AddBody(customer);
+
             var account = _wrapper.Execute<Account>();
             return account;
         }
@@ -31,6 +39,9 @@ namespace GatewayAPI.GatewayController
         {
             _restSharpComponent.TokenizeRequest(new User());
             _wrapper = new HttpRequestWrapper("",RestSharp.Method.POST);
+
+            _wrapper = new HttpRequestWrapper(ConfigurationManager.AppSettings["CustomersAPI"], RestSharp.Method.POST);
+
             _wrapper.SetComponent(_restSharpComponent);
             var customers = _wrapper.Execute<List<Customer>>();
             return customers;

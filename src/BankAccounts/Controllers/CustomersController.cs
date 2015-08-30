@@ -8,9 +8,11 @@ using System.Web.Http;
 using BankAccounts.Repository.Entities;
 using BankAccounts.Services.Services;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace BankAccountsAPI.Controllers
 {
+    [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
         private ICreditReportService _creditReportService;
@@ -64,8 +66,8 @@ namespace BankAccountsAPI.Controllers
                 };
 
                 var content = new FormUrlEncodedContent(pairs);
-                string t = (content != null) ? "test" : string.Empty;
-                var client = new HttpClient {BaseAddress = new Uri("http://localhost:6740")};
+            
+                var client = new HttpClient {BaseAddress = new Uri(ConfigurationManager.AppSettings["AccountsAPI"])};
 
                 var response = await client.PostAsync("/api/accounts", content);
 

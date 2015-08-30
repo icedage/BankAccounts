@@ -14,9 +14,9 @@ namespace BankAccounts.Services.BankAccounts
         public BankAccountBenefits Benefits { get; set; }
 
 
-        public void ProcessRequest(CustomerDto customer)
+        public void ProcessRequest(AccountStatus status)
         {
-            if( customer.AnnualGrossSalary > 5000 || customer.AnnualGrossSalary < 30000 )
+            if(status == AccountStatus.Classic)
             {
                 Benefits.ClassicAccountBenefits.IncludesCheckBook = true;
                 Benefits.ClassicAccountBenefits.IncludesInternetBanking = true;
@@ -28,7 +28,7 @@ namespace BankAccounts.Services.BankAccounts
             }
             else
             {
-                Successor.ProcessRequest(customer);
+                //Successor.ProcessRequest(customer);
             }
         }
 

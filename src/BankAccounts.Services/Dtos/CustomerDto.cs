@@ -28,5 +28,7 @@ namespace BankAccounts.Repository.Entities
         public decimal AnnualNetSalary { get; set; }
 
         public CreditReportDto CreditReport { get; set; }
+
+        public AccountStatus Status { get; set; }
     }
 }

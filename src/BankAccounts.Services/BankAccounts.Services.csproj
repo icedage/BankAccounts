@@ -62,6 +62,7 @@
     <Compile Include="BankAccounts\RequestHandlerExtension.cs" />
     <Compile Include="BankAccounts\SilverAccount.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
+    <Compile Include="Dtos\AccountStatus.cs" />
     <Compile Include="Dtos\AddressDto.cs" />
     <Compile Include="Dtos\CreditReportDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />

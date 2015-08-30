@@ -10,11 +10,11 @@ using BankAccounts.Repository.Entities;
 
 namespace BankAccountsAPI.Controllers
 {
-    public class AccountsController : ApiController
+    public class AccountBenefitsController : ApiController
     {
         private readonly IAccountService _accountService;
 
-        public AccountsController(IAccountService accountService)
+        public AccountBenefitsController(IAccountService accountService)
         {
             _accountService = accountService;
         }
