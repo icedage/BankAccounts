@@ -5,7 +5,7 @@ namespace GatewayAPI.GatewayController
 {
     public interface IGatewayController
     {
-        IList<Customer> Customers();
+        //IList<Customer> Customers();
 
         Account CreateCustomer(Customer customer);
     }

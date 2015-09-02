@@ -15,4 +15,3 @@ C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\Newtonsoft.Json.xml
 C:\Projects\BankAccounts\src\GatewayAPI\bin\Debug\RestSharp.xml
 C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.dll
 C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.pdb
-C:\Projects\BankAccounts\src\GatewayAPI\obj\Debug\GatewayAPI.csprojResolveAssemblyReference.cache

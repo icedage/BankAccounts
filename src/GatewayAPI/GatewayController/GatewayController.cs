@@ -25,29 +25,13 @@ namespace GatewayAPI.GatewayController
                                                              grant_type ="password"
                                                             });
             _wrapper = new HttpRequestWrapper(_restSharpComponent, "http://localhost:51313/api/customers", Method.POST);
-            //_wrapper.SetComponent(_restSharpComponent);
+            
+            var serializedRequest = JsonConvert.SerializeObject(customer);
 
-        
-            //_wrapper = new HttpRequestWrapper(ConfigurationManager.AppSettings["CustomersAPI"], Method.POST);
-            //_wrapper.SetComponent(_restSharpComponent);
-            var t = JsonConvert.SerializeObject(customer);
-            _wrapper.Post(t);
+            _wrapper.Post(serializedRequest);
 
             var account = _wrapper.Execute<Account>();
             return account;
-        }
-
-        public IList<Customer> Customers()
-        {
-            //_restSharpComponent.TokenizeRequest(new User());
-            //_wrapper = new HttpRequestWrapper();
-
-            //_wrapper = new HttpRequestWrapper();
-
-            //_wrapper.SetComponent(_restSharpComponent);
-            //var customers = _wrapper.Execute<List<Customer>>();
-            //return customers;
-            return null;
         }
     }
 }
