@@ -10,4 +10,5 @@ Technologies
 1) Microservices (TiresiasAPI, AccountsAPI and CustomersAPI)
 2) API Gateway pattern
 3) Specflow
+4) MVC
 
