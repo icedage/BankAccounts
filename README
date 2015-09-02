@@ -12,3 +12,9 @@ Technologies
 3) Specflow
 4) MVC
 
+How to run
+
+2) Restore Accounts.bak (Delete Identity)
+1) Create SuperUser by executing Update-Database (CustomersAPI)
+3) Run AccountsAPI-CustomersAPI-TiresiasAPI-Presentation
+
