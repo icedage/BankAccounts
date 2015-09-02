@@ -60,27 +60,20 @@ namespace AccountsAPI.Services.Services
         private async Task<AccountStatus> GetAccountStatus(CustomerDto customer)
         {
             var accountStatus = AccountStatus.Denied;
-            try
+
+            var report = await _creditReportService.GetCreditReport(customer);
+
+            if (report.CreditReport.IsEligible)
             {
-                var report = await _creditReportService.GetCreditReport(customer);
-
-                if (report.CreditReport.IsEligible)
-                {
-                    if (customer.AnnualGrossSalary < 20000)
-                        accountStatus = AccountStatus.Classic;
-                    if (customer.AnnualGrossSalary >= 20000 && customer.AnnualGrossSalary < 40000)
-                        accountStatus = AccountStatus.Silver;
-                    if (customer.AnnualGrossSalary >= 40000)
-                        accountStatus = AccountStatus.Gold;
-                }
-
-                return accountStatus;
+                if (customer.AnnualGrossSalary < 20000)
+                    accountStatus = AccountStatus.Classic;
+                if (customer.AnnualGrossSalary >= 20000 && customer.AnnualGrossSalary < 40000)
+                    accountStatus = AccountStatus.Silver;
+                if (customer.AnnualGrossSalary >= 40000)
+                    accountStatus = AccountStatus.Gold;
             }
-            catch (Exception ex)
-            {
 
-                return accountStatus;
-            }
+            return accountStatus;
         }
     }
 }
