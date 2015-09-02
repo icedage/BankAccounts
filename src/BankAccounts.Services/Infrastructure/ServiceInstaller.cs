@@ -30,13 +30,6 @@ namespace AccountsAPI.Services.Infrastructure
                        .ImplementedBy<CreditReportService>()
                        .LifeStyle.Transient);
 
-             //container.Register(
-             // Component.For<IRepository<Account>>()
-             //          .ImplementedBy<AccountsRepository>()
-             //          .LifeStyle.Transient);
-        
-        }
-
-
+          }
     }
 }

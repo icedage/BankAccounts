@@ -39,7 +39,6 @@ namespace AccountsAPI.Repository.Repositories
                 _sqlCommand.Parameters.Add(returnValue);
                 _sqlCommand.ExecuteNonQuery();
                 return (int)returnValue.Value;
-
             }
             finally
             {

@@ -6,3 +6,4 @@ C:\Projects\BankAccounts\src\BankAccounts.Contracts\bin\Debug\BankAccounts.Contr
 C:\Projects\BankAccounts\src\BankAccounts.Contracts\bin\Debug\BankAccounts.Contracts.pdb
 C:\Projects\BankAccounts\src\BankAccounts.Contracts\obj\Debug\BankAccounts.Contracts.dll
 C:\Projects\BankAccounts\src\BankAccounts.Contracts\obj\Debug\BankAccounts.Contracts.pdb
+C:\Projects\BankAccounts\src\BankAccounts.Contracts\obj\Debug\BankAccounts.Contracts.csprojResolveAssemblyReference.cache
