@@ -1,21 +1,23 @@
-﻿using BankAccounts.Presentation.Models;
-using BankAccounts.Presentation.Presenters;
+﻿using AccountsAPI.Presentation.Models;
+using AccountsAPI.Presentation.Presenters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BankAccounts.Presentation.Controllers
+namespace AccountsAPI.Presentation.Controllers
 {
     public class BankAccountController : Controller
     {
-        private readonly IBankAccountPresenter _bankAccountPresenter;
+
+        private IBankAccountPresenter _bankAccountPresenter;
+
         public BankAccountController(IBankAccountPresenter bankAccountPresenter)
         {
             _bankAccountPresenter = bankAccountPresenter;
         }
-
+        
         // GET: BankAccount
         public ActionResult Index()
         {
@@ -29,6 +31,7 @@ namespace BankAccounts.Presentation.Controllers
         }
 
         // GET: BankAccount/Create
+        [HttpGet]
         public ActionResult Create()
         {
             var account = new BankAccountModel();
@@ -42,7 +45,10 @@ namespace BankAccounts.Presentation.Controllers
             try
             {
                 // TODO: Add insert logic here
+                var accountDetails = _bankAccountPresenter.ApplyForAccount(bankAccountModel);
+
                 var account = _bankAccountPresenter.ApplyForAccount(bankAccountModel);
+
                 return RedirectToAction("Index");
             }
             catch

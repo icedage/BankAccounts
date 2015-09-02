@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using BankAccounts.Identity;
+using AccountsAPI.Identity;
 
-namespace BankAccountsAPI.Identity
+namespace AccountsAPI.Identity
 {
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {

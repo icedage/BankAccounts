@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TiresiasAPI.Models;
 
-namespace BankAccounts.Services.Dtos
+namespace AccountsAPI.Services.Dtos
 {
     public class CreditReportDto
     {

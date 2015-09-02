@@ -16,7 +16,8 @@ namespace GatewayAPI
 
         public RestSharpComponent()
         {
-            Client = new RestClient(ConfigurationManager.AppSettings["URL"]);
+            Client = new RestClient(ConfigurationManager.AppSettings["TokenResourceUrl"]);
+            Request = new RestRequest();
         }
     }
 }

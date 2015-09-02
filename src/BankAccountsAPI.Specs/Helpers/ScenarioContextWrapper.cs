@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace BankAccountsAPI.Specs.Helpers
+namespace AccountsAPI.Specs.Helpers
 {
     public class ScenarioContextWrapper<T>
     {

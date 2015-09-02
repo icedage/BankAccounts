@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace BankAccountsAPI
+namespace AccountsAPI
 {
     public class FilterConfig
     {

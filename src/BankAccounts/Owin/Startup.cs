@@ -1,9 +1,9 @@
-﻿using BankAccounts.Identity;
-using BankAccountsAPI;
-using BankAccountsAPI.Identity;
-using BankAccountsAPI.Owin;
-using BankAccountsAPI.Plumbing;
-using BankAccountsAPI.Providers;
+﻿using AccountsAPI.Identity;
+using AccountsAPI;
+using AccountsAPI.Identity;
+using AccountsAPI.Infrastructure;
+using AccountsAPI.Owin;
+using AccountsAPI.Providers;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Microsoft.Owin;
@@ -24,22 +24,28 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 
 [assembly: OwinStartup(typeof(Startup))]
-namespace BankAccountsAPI.Owin
+namespace AccountsAPI.Owin
 {
     public class Startup
     {
-        private static WindsorContainer _container;
+        //private static WindsorContainer _container;
 
         public void Configuration(IAppBuilder app)
+        
         {
             HttpConfiguration config = new HttpConfiguration();
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
-            app.UseWebApi(config);
+          
             ConfigureOAuthTokenGeneration(app);
             ConfigureOAuthTokenConsumption(app);
-            _container = new WindsorContainer();
-            RegisterContainer();
+            var container = new WindsorContainer().Install(
+               new ControllerInstaller(),
+               new DefaultInstaller());
+            var httpDependencyResolver = new WindsorHttpDependencyResolver(container);
+
+            config.DependencyResolver = httpDependencyResolver;
+            app.UseWebApi(config);
         }
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
@@ -90,19 +96,23 @@ namespace BankAccountsAPI.Owin
                 });
         }
 
-        private static void RegisterContainer()
-        {
-            //Add Web API controllers into CastleWindsor
-            _container.Register(AllTypes.FromThisAssembly()
-                                        .BasedOn<IHttpController>()
-                                        .WithService.DefaultInterfaces()
-                                        .Configure(c => c.LifestylePerWebRequest()));
+        //private static void RegisterContainer()
+        //{
+        ////    //Add Web API controllers into CastleWindsor
+        ////    _container.Register(AllTypes.FromThisAssembly()
+        ////                                .BasedOn<IHttpController>()
+        ////                                .WithService.DefaultInterfaces()
+        ////                                .Configure(c => c.LifestylePerWebRequest()));
+
+        //    _container.Register(Classes.FromThisAssembly()
+        //                  .BasedOn<IHttpController>()
+        //                  .LifestylePerWebRequest());
 
 
 
-            //Tie Castle.Windsor to WebAPI
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),
-                                                               new WindsorHttpControllerActivator(_container));
-        }
+        //    //Tie Castle.Windsor to WebAPI
+        //    GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),
+        //                                                       new WindsorHttpControllerActivator(_container));
+        //}
     }
 }

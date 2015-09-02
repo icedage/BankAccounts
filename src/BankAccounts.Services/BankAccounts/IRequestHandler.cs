@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Contracts;
-using BankAccounts.Repository.Entities;
+using AccountsAPI.Contracts;
+using AccountsAPI.Repository.Entities;
 
-namespace BankAccounts.Services.BankAccounts
+namespace AccountsAPI.Services.BankAccounts
 {
     public interface IRequestAccountHandler
     {
-        BankAccountBenefits Benefits { get; set; }
-
-        void ProcessRequest(CustomerDto customer);
+        void ProcessRequest(BankAccountBenefits accountBenefits);
 
         IRequestAccountHandler Successor { get; set; }
     }

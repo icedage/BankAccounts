@@ -1,10 +1,13 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using BankAccounts.Services.Services;
-using BankAccounts.Repository.Infrastructure;
+using AccountsAPI.Services.Services;
+using AccountsAPI.Repository.Infrastructure;
+using AccountsAPI.Repository;
+using AccountsAPI.Repository.Repositories;
+using AccountsAPI.Repository.Entities;
 
-namespace BankAccounts.Services.Infrastructure
+namespace AccountsAPI.Services.Infrastructure
 {
     public class ServiceInstaller : IWindsorInstaller
     {
@@ -21,6 +24,19 @@ namespace BankAccounts.Services.Infrastructure
               Component.For<IAccountService>()
                        .ImplementedBy<AccountService>()
                        .LifeStyle.Transient);
+
+            container.Register(
+              Component.For<ICreditReportService>()
+                       .ImplementedBy<CreditReportService>()
+                       .LifeStyle.Transient);
+
+             //container.Register(
+             // Component.For<IRepository<Account>>()
+             //          .ImplementedBy<AccountsRepository>()
+             //          .LifeStyle.Transient);
+        
         }
+
+
     }
 }

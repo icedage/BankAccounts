@@ -1,11 +1,11 @@
-﻿using BankAccounts.Services.Dtos;
+﻿using AccountsAPI.Services.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Repository.Entities
+namespace AccountsAPI.Repository.Entities
 {
     public class CustomerDto
     {
@@ -28,5 +28,9 @@ namespace BankAccounts.Repository.Entities
         public decimal AnnualNetSalary { get; set; }
 
         public CreditReportDto CreditReport { get; set; }
+
+        public AccountStatus Status { get; set; }
+
+        public string NationalInsuranceNumber { get; set; }
     }
 }

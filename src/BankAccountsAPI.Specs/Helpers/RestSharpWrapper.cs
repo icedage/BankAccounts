@@ -1,4 +1,4 @@
-﻿using BankAccountsAPI.Specs.Entities;
+﻿using AccountsAPI.Specs.Entities;
 using RestSharp;
 using RestSharp.Authenticators;
 using RestSharp.Deserializers;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccountsAPI.Specs.Helpers
+namespace AccountsAPI.Specs.Helpers
 {
     public class RestSharpWrapper : RestSharpComponent 
     {

@@ -1,4 +1,5 @@
-﻿using Castle.Windsor;
+﻿using Castle.MicroKernel;
+using Castle.Windsor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,44 +11,25 @@ namespace BankAccounts.Presentation
 {
     public class WindsorControllerFactory : DefaultControllerFactory
     {
-        readonly IWindsorContainer _container;
+        private readonly IKernel kernel;
 
-        public WindsorControllerFactory(IWindsorContainer container)
+        public WindsorControllerFactory(IKernel kernel)
         {
-            _container = container;
+            this.kernel = kernel;
         }
 
         public override void ReleaseController(IController controller)
         {
-            _container.Kernel.ReleaseComponent(controller);
+            kernel.ReleaseComponent(controller);
         }
 
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
-            try
+            if (controllerType == null)
             {
-                if (controllerType == null)
-                {
-                    throw new HttpException(404,
-                        string.Format("The controller for path '{0}' could not be found.",
-                        requestContext.HttpContext.Request.Path));
-                }
-
-                var controller = _container.Kernel.Resolve(controllerType) as Controller;
-
-                // new code
-                if (controller != null)
-                {
-                    controller.ActionInvoker = _container.Resolve<IActionInvoker>();
-                }
-
-                return (IController)_container.Kernel.Resolve(controllerType);
+                throw new HttpException(404, string.Format("The controller for path '{0}' could not be found.", requestContext.HttpContext.Request.Path));
             }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return (IController)kernel.Resolve(controllerType);
         }
-
     }
 }

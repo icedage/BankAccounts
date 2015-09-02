@@ -1,29 +1,40 @@
-﻿using BankAccounts.Services.Services;
-using BankAccountsAPI.Models;
+﻿using AccountsAPI.Services.Services;
+using AccountsAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BankAccounts.Repository.Entities;
+using AccountsAPI.Repository.Entities;
+using System.Threading.Tasks;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     public class AccountsController : ApiController
     {
         private readonly IAccountService _accountService;
+
+        public AccountsController() { }
 
         public AccountsController(IAccountService accountService)
         {
             _accountService = accountService;
         }
 
+        [HttpGet]
+        public async Task<IHttpActionResult> Get()
+        {
+            return Ok();
+        }
+
         [HttpPost]
-        public IHttpActionResult Post(CreateAccountRequest request)
+        public async Task<IHttpActionResult> Post(CreateAccountRequest request)
         {
             var customer = new CustomerDto() {  CustomerId=request.CustomerId ,
-                                                AnnualNetSalary= request.FinancialDetails.AnnualNetIncome
+                                                AnnualNetSalary= request.FinancialDetails.AnnualNetSalary,
+                                                AnnualGrossSalary = request.FinancialDetails.AnnualGrossSalary,
+                                                NationalInsuranceNumber= request.NationalInsuranceNumber
                                              };
 
             _accountService.CreateAccount(customer);

@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using BankAccounts.Presentation.Models;
+using AccountsAPI.Presentation.Models;
 
-namespace BankAccounts.Presentation
+namespace AccountsAPI.Presentation
 {
     public class EmailService : IIdentityMessageService
     {

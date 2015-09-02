@@ -1,4 +1,4 @@
-﻿using BankAccounts.Services.AccountBenefits.Classic;
+﻿using AccountsAPI.Services.AccountBenefits.Classic;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Repository.Repositories
+namespace AccountsAPI.Repository.Repositories
 {
     public class ClassicAccountBenefitsRepository : IRepository<ClassicAccountBenefits>
     {
@@ -18,18 +18,7 @@ namespace BankAccounts.Repository.Repositories
         {
             _sqlConnection = new SqlConnection("Server=(local);DataBase=Northwind;Integrated Security=SSPI");
         }
-
-
-        public List<ClassicAccountBenefits> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ClassicAccountBenefits Get(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public int Add(ClassicAccountBenefits account)
         {
             try
@@ -57,16 +46,6 @@ namespace BankAccounts.Repository.Repositories
                 _sqlConnection.Dispose();
                 _sqlCommand.Dispose();
             }
-        }
-
-        public bool Remove(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(ClassicAccountBenefits customer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

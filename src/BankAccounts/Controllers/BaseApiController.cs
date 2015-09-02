@@ -7,9 +7,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
-using BankAccountsAPI.Identity;
+using AccountsAPI.Identity;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     public class BaseApiController : ApiController
     {

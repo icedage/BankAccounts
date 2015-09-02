@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Contracts;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Services.AccountBenefits;
-using BankAccounts.Services.AccountBenefits.Gold;
-using BankAccounts.Services.Dtos;
+using AccountsAPI.Contracts;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Services.AccountBenefits;
+using AccountsAPI.Services.AccountBenefits.Gold;
+using AccountsAPI.Services.Dtos;
+using AccountsAPI.Repository;
 
-namespace BankAccounts.Services.BankAccounts
+namespace AccountsAPI.Services.BankAccounts
 {
     public class GoldAccount : IRequestAccountHandler
     {
+        private IRepository<GoldAccountBenefits> _repository;
+
+        public GoldAccount(IRepository<GoldAccountBenefits> repository)
+        {
+            _repository = repository;
+        }
+
         public IRequestAccountHandler Successor { get; set; }
 
-        public BankAccountBenefits Benefits { get; set; }
-
-        public void ProcessRequest(CustomerDto customer)
+        public void ProcessRequest(BankAccountBenefits accountBenefits)
         {
-            Benefits.GoldAccountBenefits.AABreakdownCover = new AABreakdownCover()
+            accountBenefits.GoldAccountBenefits.AABreakdownCover = new AABreakdownCover()
             {
                 IncludesAccidentalManagement = true,
                 IncludesRoadSideAssistance = true,
@@ -31,7 +37,7 @@ namespace BankAccounts.Services.BankAccounts
                     }
             };
 
-            Benefits.GoldAccountBenefits.EuropeanTravelInsurance = new WorldWideTravelInsurance()
+            accountBenefits.GoldAccountBenefits.EuropeanTravelInsurance = new WorldWideTravelInsurance()
             {
                 BuggageCover=250,
                 CancellationTravel=400,
@@ -41,20 +47,22 @@ namespace BankAccounts.Services.BankAccounts
                 TravelDays=45
             };
 
-            Benefits.GoldAccountBenefits.IncludesCheckBook = true;
-            Benefits.GoldAccountBenefits.IncludesInternetBanking = true;
-            Benefits.GoldAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
+            accountBenefits.GoldAccountBenefits.IncludesCheckBook = true;
+            accountBenefits.GoldAccountBenefits.IncludesInternetBanking = true;
+            accountBenefits.GoldAccountBenefits.MobilePhoneInsurance = new MobilePhoneInsurance() {
                                                                                                                 MaximumRetailCostCover = 500,
                                                                                                                 UnauthorisedCallsForContractsCover = 1000,
                                                                                                                 UnauthorisedCallsForPayAsYouGoCover = 300
                                                                                                            };
-            Benefits.GoldAccountBenefits.Overdraft = new Overdraft() {
+            accountBenefits.GoldAccountBenefits.Overdraft = new Overdraft()
+            {
                                                                                     IncludesGracePeriod = true,
                                                                                     IncludesOverdraftBuffer = true,
                                                                                     PerdayCharges = 2.5M
                                                                                   };
 
-            Benefits.GoldAccountBenefits.SentinelCardProtection = new SentinelCardProtection() {
+            accountBenefits.GoldAccountBenefits.SentinelCardProtection = new SentinelCardProtection()
+            {
                                                                                                                     Claims = 2500,
                                                                                                                     EmergencyCash = 3000,
                                                                                                                     HotelBillsOverseas = 1500,
@@ -62,6 +70,7 @@ namespace BankAccounts.Services.BankAccounts
                                                                                                                     IncludesReplacements = true,
                                                                                                                     MedicalAssistanceInAbroad = 300000
                                                                                                                 };
+            _repository.Add(accountBenefits.GoldAccountBenefits);
         }
     }
 }

@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using BankAccounts.Presentation.Models;
+using AccountsAPI.Presentation.Models;
 
-namespace BankAccounts.Presentation
+namespace AccountsAPI.Presentation
 {
     public partial class Startup
     {

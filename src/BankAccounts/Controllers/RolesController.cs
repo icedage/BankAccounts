@@ -1,4 +1,4 @@
-﻿using BankAccountsAPI.Models;
+﻿using AccountsAPI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     [Authorize(Roles = "Admin")]
     [RoutePrefix("api/roles")]

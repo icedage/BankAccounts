@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Services.AccountBenefits;
-using BankAccounts.Services.AccountBenefits.Classic;
-using BankAccounts.Services.AccountBenefits.Gold;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Services.AccountBenefits;
+using AccountsAPI.Services.AccountBenefits.Classic;
+using AccountsAPI.Services.AccountBenefits.Gold;
+using System.Configuration;
 
-namespace BankAccounts.Repository.Repositories
+namespace AccountsAPI.Repository.Repositories
 {
     public class AccountsRepository : IRepository<Account>
     {
@@ -19,50 +20,37 @@ namespace BankAccounts.Repository.Repositories
 
         public AccountsRepository()
         {
-            _sqlConnection = new SqlConnection("Server=(local);DataBase=Northwind;Integrated Security=SSPI");
+            _sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Accounts"].ToString());
         }
 
-        public int Add(Account customer)
+        public int Add(Account account)
         {
             try
             {
+                var returnValue = new SqlParameter();
+                returnValue.Direction = ParameterDirection.ReturnValue;
                 _sqlConnection.Open();
                 _sqlCommand = new SqlCommand();
+                _sqlCommand.Connection = _sqlConnection;
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
-                _sqlCommand.Parameters.Add(new SqlParameter("@FirstName", customer.CustomerId));
-                _sqlCommand.Parameters.Add(new SqlParameter("@LastName", customer.AccountNumber));
-                _sqlCommand.Parameters.Add(new SqlParameter("@PersonalId", customer.SortCode));
-
-                var accountId = 0;
+                _sqlCommand.CommandText = "sp_CreateAccount";
+                _sqlCommand.Parameters.Add(new SqlParameter("@CustomerId", account.CustomerId));
+                _sqlCommand.Parameters.Add(new SqlParameter("@AccountNumber", account.AccountNumber));
+                _sqlCommand.Parameters.Add(new SqlParameter("@SortCode", account.SortCode));
+                _sqlCommand.Parameters.Add(new SqlParameter("@Status", account.Status));
+                _sqlCommand.Parameters.Add(returnValue);
                 _sqlCommand.ExecuteNonQuery();
-                return accountId;
-               
+                return (int)returnValue.Value;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
             finally
             {
                 _sqlConnection.Dispose();
                 _sqlCommand.Dispose();
             }
-        }
-    
-        public List<Account> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Account Get(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Account customer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

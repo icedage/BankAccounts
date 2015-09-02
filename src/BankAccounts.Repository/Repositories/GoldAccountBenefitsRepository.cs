@@ -1,11 +1,11 @@
-﻿using BankAccounts.Services.AccountBenefits.Gold;
+﻿using AccountsAPI.Services.AccountBenefits.Gold;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Repository.Repositories
+namespace AccountsAPI.Repository.Repositories
 {
     public class GoldAccountBenefitsRepository : IRepository<GoldAccountBenefits>
     {

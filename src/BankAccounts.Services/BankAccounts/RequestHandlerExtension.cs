@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Repository.Entities;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Contracts;
 
-namespace BankAccounts.Services.BankAccounts
+namespace AccountsAPI.Services.BankAccounts
 {
     public static class RequestHandlerExtension
     {
-        public static void TrySuccessor(this IRequestAccountHandler current, CustomerDto customer)
+        public static void TrySuccessor(this IRequestAccountHandler current, BankAccountBenefits accountBenefits)
         {
             if (current.Successor != null)
             {
                 Console.WriteLine("Can't approve - Passing request to {0}", typeof(IRequestAccountHandler));
-                current.Successor.ProcessRequest(customer);
+                current.Successor.ProcessRequest(accountBenefits);
             }
             else
             {

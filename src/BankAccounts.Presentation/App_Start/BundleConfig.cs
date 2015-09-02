@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace BankAccounts.Presentation
+namespace AccountsAPI.Presentation
 {
     public class BundleConfig
     {

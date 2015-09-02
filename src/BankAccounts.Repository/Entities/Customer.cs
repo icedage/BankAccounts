@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Repository.Entities
+namespace AccountsAPI.Repository.Entities
 {
     public class Customer
     {
@@ -22,6 +22,7 @@ namespace BankAccounts.Repository.Entities
 
         public decimal AnnualGrossSalary { get; set; }
 
-        public DateTime DoB { get; set; }
+        public string Nationality { get; set; }
+
     }
 }

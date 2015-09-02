@@ -57,7 +57,6 @@ C:\DotNet\BankAccounts\src\BankAccounts.Presentation\bin\RestSharp.xml
 C:\DotNet\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.csprojResolveAssemblyReference.cache
 C:\DotNet\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.dll
 C:\DotNet\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.pdb
-C:\Projects\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\BankAccounts.Presentation.dll.config
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\BankAccounts.Presentation.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\BankAccounts.Presentation.pdb
@@ -66,7 +65,7 @@ C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Castle.Core.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Castle.Windsor.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\EntityFramework.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\EntityFramework.SqlServer.dll
-C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\GatewayAPI.exe
+C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\GatewayAPI.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -94,6 +93,7 @@ C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\RestSharp.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\GatewayAPI.pdb
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Castle.Core.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Castle.Windsor.xml
+C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Newtonsoft.Json.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.Helpers.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.Mvc.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.Optimization.xml
@@ -102,7 +102,6 @@ C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.WebPages.x
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.WebPages.Deployment.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\System.Web.WebPages.Razor.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Antlr3.Runtime.pdb
-C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Newtonsoft.Json.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\EntityFramework.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\EntityFramework.SqlServer.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.AspNet.Identity.Core.xml
@@ -118,5 +117,6 @@ C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.Owin.Securi
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\bin\RestSharp.xml
+C:\Projects\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.csprojResolveAssemblyReference.cache
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.dll
 C:\Projects\BankAccounts\src\BankAccounts.Presentation\obj\Debug\BankAccounts.Presentation.pdb

@@ -1,49 +1,31 @@
-﻿using BankAccountsAPI.Models.Requests;
+﻿using AccountsAPI.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Services.Services;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Services.Services;
 using System.Threading.Tasks;
 using System.Configuration;
+using Newtonsoft.Json;
+using AccountsAPI.Services.Dtos;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
-        private ICreditReportService _creditReportService;
         private ICustomerService _customerService;
 
-        public CustomersController(ICreditReportService creditReportService, ICustomerService customerService)
+        public CustomersController(ICustomerService customerService)
         {
-            _creditReportService = creditReportService;
             _customerService = customerService;
         }
-
-        [HttpGet]
-        public async Task<IHttpActionResult> Get()
-        {
-            var customers= _customerService.GetAll();
-            return Ok(customers);
-        }
-
-        [HttpGet]
-        public async Task<IHttpActionResult> Get(Guid customerId)
-        {
-            var customers = _customerService.GetAll();
-            return Ok(customers);
-        }
-
-        public async Task<IHttpActionResult> Put()
-        {
-            return Ok();
-        }
-
+        
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> Post(CustomerDetails customerDetails)
         {
                 var customerDto = new CustomerDto() {
@@ -56,20 +38,25 @@ namespace BankAccountsAPI.Controllers
                                                         PersonalId = customerDetails.PersonalId
                                                     };
 
-                var report = await _creditReportService.GetCreditReport(customerDto);
+              
 
                 var customerID = _customerService.CreateCustomer(customerDto);
 
-                var pairs = new List<KeyValuePair<string, string>>
-                {
-                    new KeyValuePair<string, string>("CustomerId", customerID.ToString())
-                };
+                var details = new {
+                                    AnnualGrossSalary = customerDetails.AnnualGrossSalary.ToString(),
+                                    AnnualNetSalary = customerDetails.AnnualNetSalary.ToString()
+                                  };
 
-                var content = new FormUrlEncodedContent(pairs);
-            
+                var stringContent = new StringContent(JsonConvert.SerializeObject( new { CustomerId = customerID,
+                                                                                         FinancialDetails = details,
+                                                                                         NationalInsuranceNumber = customerDetails.NationalInsuranceNumber
+                                                                                       }), System.Text.Encoding.UTF8, "application/json");
+                
                 var client = new HttpClient {BaseAddress = new Uri(ConfigurationManager.AppSettings["AccountsAPI"])};
 
-                var response = await client.PostAsync("/api/accounts", content);
+                var response = await client.PostAsync("/api/accounts", stringContent);
+
+                var customerReport = JsonConvert.DeserializeObject<AccountDto>(response.Content.ReadAsStringAsync().Result);
 
                 return Ok();
         }

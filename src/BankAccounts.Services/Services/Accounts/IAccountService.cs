@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Services.Dtos;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Services.Dtos;
 
-namespace BankAccounts.Services.Services
+namespace AccountsAPI.Services.Services
 {
     public interface IAccountService
     {
-        AccountDto CreateAccount(CustomerDto customer);
+        Task<AccountDto> CreateAccount(CustomerDto customer);
     }
 }

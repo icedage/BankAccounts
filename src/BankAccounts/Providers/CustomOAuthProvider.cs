@@ -7,10 +7,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
-using BankAccounts.Identity;
-using BankAccountsAPI.Identity;
+using AccountsAPI.Identity;
+using AccountsAPI.Identity;
 
-namespace BankAccountsAPI.Providers
+namespace AccountsAPI.Providers
 {
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
@@ -23,36 +23,27 @@ namespace BankAccountsAPI.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            try
+            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+
+            var user = await userManager.FindAsync(context.UserName, context.Password);
+
+            if (user == null)
             {
-                //var allowedOrigin = "*";
-
-                //context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
-
-                var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
-
-                ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
-
-                if (!user.EmailConfirmed)
-                {
-                    context.SetError("invalid_grant", "User did not confirm email.");
-                    return;
-                }
-
-                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");
-
-                var ticket = new AuthenticationTicket(oAuthIdentity, null);
-
-                context.Validated(ticket);
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
             }
-            catch (Exception ex)
-            { }
+
+            if (!user.EmailConfirmed)
+            {
+                context.SetError("invalid_grant", "User did not confirm email.");
+                return;
+            }
+
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");
+
+            var ticket = new AuthenticationTicket(oAuthIdentity, null);
+
+            context.Validated(ticket);
         }
     }
 }

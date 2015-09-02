@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Services
+namespace AccountsAPI.Services.Services
 {
     public sealed class CodeGenerator
     {
