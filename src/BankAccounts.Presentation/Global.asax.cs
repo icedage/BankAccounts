@@ -1,4 +1,4 @@
-﻿using BankAccounts.Presentation.Infrastructure;
+﻿
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using System;
@@ -11,13 +11,15 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
+using Castle.Windsor.Installer;
+using BankAccounts.Presentation;
 
 
-namespace BankAccounts.Presentation
+namespace AccountsAPI.Presentation
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        private static WindsorContainer _container;
+        private static IWindsorContainer _container;
 
         protected void Application_Start()
         {
@@ -25,23 +27,16 @@ namespace BankAccounts.Presentation
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            RegisterContainer();
+            MvcApplication.BootstrapContainer();
         }
 
-        private static void RegisterContainer()
+        private static void BootstrapContainer()
         {
-            //Add Web API controllers into CastleWindsor
-            _container.Register(AllTypes.FromThisAssembly()
-                                        .BasedOn<IHttpController>()
-                                        .WithService.DefaultInterfaces()
-                                        .Configure(c => c.LifestylePerWebRequest()));
+            _container = new WindsorContainer().Install(FromAssembly.This());
 
-
-
-            //Tie Castle.Windsor to WebAPI
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),
-                                                               new WindsorHttpControllerActivator(_container));
-
+            var controllerFactory = new WindsorControllerFactory(_container.Kernel);
+            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
         }
+
     }
 }

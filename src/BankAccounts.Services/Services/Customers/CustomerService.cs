@@ -1,12 +1,12 @@
-﻿using BankAccounts.Repository;
-using BankAccounts.Repository.Entities;
+﻿using AccountsAPI.Repository;
+using AccountsAPI.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Services
+namespace AccountsAPI.Services.Services
 {
     public class CustomerService : ICustomerService
     {
@@ -23,35 +23,15 @@ namespace BankAccounts.Services.Services
             {
                 FirstName = customerDto.FirstName,
                 LastName = customerDto.LastName,
-                DoB = customerDto.DoB,
-                AnnualGrossSalary = customerDto.AnnualGrossSalary
+                BirthDate = customerDto.DoB,
+                AnnualGrossSalary = customerDto.AnnualGrossSalary,
+                Id= customerDto.PersonalId,
+                Nationality= customerDto.Nationality
+                
             };
             var customerId = _customerRepository.Add(customer);
 
             return customerId;
-        }
-
-        public IEnumerable<CustomerDto> GetAll()
-        {
-            var customers = _customerRepository.GetAll();
-
-            var  customerCollection = new List<CustomerDto>();
-
-            customers.ForEach((x) => customerCollection.Add(new CustomerDto()));
-            
-            return customerCollection;
-        }
-
-        public bool Update(CustomerDto customer)
-        {
-            return _customerRepository.Update(new Customer() { });
-        }
-
-        public CustomerDto GetById(int id)
-        {
-            var customer = _customerRepository.Get(id);
-
-            return new CustomerDto() { };
         }
     }
 }

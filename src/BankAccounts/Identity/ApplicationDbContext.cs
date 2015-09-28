@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Identity
+namespace AccountsAPI.Identity
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

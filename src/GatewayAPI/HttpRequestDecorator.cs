@@ -10,8 +10,8 @@ namespace GatewayAPI
     public abstract class HttpRequestDecorator : RestSharpComponent
     {
         protected RestSharpComponent component;
-        
-        public void SetComponent(RestSharpComponent component)
+
+        public HttpRequestDecorator(RestSharpComponent component)
         {
             this.component = component;
         }

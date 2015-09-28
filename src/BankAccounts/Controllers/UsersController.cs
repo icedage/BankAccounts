@@ -1,5 +1,5 @@
-﻿using BankAccounts.Identity;
-using BankAccountsAPI.Models;
+﻿using AccountsAPI.Identity;
+using AccountsAPI.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     [RoutePrefix("api/accounts")]
     public class UsersController : BaseApiController

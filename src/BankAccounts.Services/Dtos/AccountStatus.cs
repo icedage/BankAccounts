@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Dtos
+namespace AccountsAPI.Services.Dtos
 {
     public enum AccountStatus
     {
         Classic = 1,
         Silver  = 2,
-        Gold    = 3
+        Gold    = 3,
+        Denied  = 4
     }
 }

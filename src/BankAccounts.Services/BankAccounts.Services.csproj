@@ -7,7 +7,7 @@
     <ProjectGuid>{A93F5D63-7DA7-4AA7-8C4D-C8EBDABC2741}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BankAccounts.Services</RootNamespace>
+    <RootNamespace>AccountsAPI.Services</RootNamespace>
     <AssemblyName>BankAccounts.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

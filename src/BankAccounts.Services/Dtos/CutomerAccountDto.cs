@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Contracts;
-using BankAccounts.Services.BankAccounts;
+using AccountsAPI.Contracts;
+using AccountsAPI.Services.BankAccounts;
 
-namespace BankAccounts.Services.Dtos
+namespace AccountsAPI.Services.Dtos
 {
         public class CutomerAccountDto
         {

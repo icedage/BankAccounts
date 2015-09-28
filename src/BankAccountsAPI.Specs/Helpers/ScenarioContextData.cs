@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccountsAPI.Specs.Helpers
+namespace AccountsAPI.Specs.Helpers
 {
     public class ScenarioContextData
     {

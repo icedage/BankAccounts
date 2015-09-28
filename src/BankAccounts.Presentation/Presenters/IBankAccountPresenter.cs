@@ -1,6 +1,6 @@
-﻿using BankAccounts.Presentation.Models;
+﻿using AccountsAPI.Presentation.Models;
 
-namespace BankAccounts.Presentation.Presenters
+namespace AccountsAPI.Presentation.Presenters
 {
     public interface IBankAccountPresenter
     {

@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Repository.Repositories;
-using BankAccounts.Services.AccountBenefits.Classic;
-using BankAccounts.Services.AccountBenefits;
-using BankAccounts.Services.AccountBenefits.Gold;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Repository.Repositories;
+using AccountsAPI.Services.AccountBenefits.Classic;
+using AccountsAPI.Services.AccountBenefits;
+using AccountsAPI.Services.AccountBenefits.Gold;
 
-namespace BankAccounts.Repository.Infrastructure
+namespace AccountsAPI.Repository.Infrastructure
 {
     public class RepositoryInstaller : IWindsorInstaller
     {
@@ -26,9 +26,9 @@ namespace BankAccounts.Repository.Infrastructure
                 .ImplementedBy<CustomerRepository>()
                         .LifeStyle.Transient);
 
-            container.Register(Component.For<IRepository<Customer>>()
-                .ImplementedBy<CustomerRepository>()
-                        .LifeStyle.Transient);
+            //container.Register(Component.For<IRepository<Customer>>()
+            //    .ImplementedBy<CustomerRepository>()
+            //            .LifeStyle.Transient);
 
             container.Register(Component.For<IRepository<ClassicAccountBenefits>>()
                 .ImplementedBy<ClassicAccountBenefitsRepository>()

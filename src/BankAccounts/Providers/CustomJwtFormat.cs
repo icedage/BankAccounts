@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using Thinktecture.IdentityModel.Tokens;
 
-namespace BankAccountsAPI.Providers
+namespace AccountsAPI.Providers
 {
     public class CustomJwtFormat : ISecureDataFormat<AuthenticationTicket>
     {

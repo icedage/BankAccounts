@@ -1,5 +1,5 @@
-﻿using BankAccounts.Identity;
-using BankAccountsAPI.Identity;
+﻿using AccountsAPI.Identity;
+using AccountsAPI.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http.Routing;
 
-namespace BankAccountsAPI.Controllers
+namespace AccountsAPI.Controllers
 {
     public class ModelFactory
     {

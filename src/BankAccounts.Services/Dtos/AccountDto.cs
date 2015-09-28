@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Dtos
+namespace AccountsAPI.Services.Dtos
 {
     public class AccountDto
     {
@@ -15,5 +15,7 @@ namespace BankAccounts.Services.Dtos
         public int AccountId { get; set; }
 
         public int CustomerId { get; set; }
+
+        public AccountStatus Status { get; set; }
     }
 }

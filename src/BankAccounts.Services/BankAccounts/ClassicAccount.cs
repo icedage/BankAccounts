@@ -3,35 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Contracts;
-using BankAccounts.Repository.Entities;
-using BankAccounts.Services.Dtos;
+using AccountsAPI.Contracts;
+using AccountsAPI.Repository.Entities;
+using AccountsAPI.Services.Dtos;
+using AccountsAPI.Services.AccountBenefits.Classic;
+using AccountsAPI.Repository;
 
-namespace BankAccounts.Services.BankAccounts
+namespace AccountsAPI.Services.BankAccounts
 {
     public class ClassicAccount : IRequestAccountHandler
     {
-        public BankAccountBenefits Benefits { get; set; }
+        private IRepository<ClassicAccountBenefits> _repository;
 
-
-        public void ProcessRequest(AccountStatus status)
+        public ClassicAccount(IRepository<ClassicAccountBenefits> repository)
         {
-            if(status == AccountStatus.Classic)
+            _repository = repository;
+        }
+
+        public void ProcessRequest(BankAccountBenefits accountBenefits)
+        {
+            if (accountBenefits.Status == BankAccountStatus.Classic)
             {
-                Benefits.ClassicAccountBenefits.IncludesCheckBook = true;
-                Benefits.ClassicAccountBenefits.IncludesInternetBanking = true;
-                Benefits.ClassicAccountBenefits.Overdraft = new Overdraft() {  IncludesGracePeriod = false,
-                                                                                           IncludesOverdraftBuffer = false,
-                                                                                           OverDraftBalance = 35,
-                                                                                           PerdayCharges = 1.5m
-                                                                                        };
+                accountBenefits.ClassicAccountBenefits.IncludesCheckBook = true;
+                accountBenefits.ClassicAccountBenefits.IncludesInternetBanking = true;
+                accountBenefits.ClassicAccountBenefits.Overdraft = new Overdraft() {
+                                                                                        IncludesGracePeriod = false,
+                                                                                        IncludesOverdraftBuffer = false,
+                                                                                        OverDraftBalance = 35,
+                                                                                        PerdayCharges = 1.5m
+                                                                                    };
+                _repository.Add(accountBenefits.ClassicAccountBenefits);
             }
             else
             {
-                //Successor.ProcessRequest(customer);
+                Successor.ProcessRequest(accountBenefits);
             }
         }
 
         public IRequestAccountHandler Successor { get; set; }
+
     }
 }

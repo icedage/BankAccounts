@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Contracts
+namespace AccountsAPI.Contracts
 {
     public enum BankAccountStatus
     {

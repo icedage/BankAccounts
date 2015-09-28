@@ -20,12 +20,20 @@ namespace TiresiasAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Post(CreditReportRequest request)
         {
-
+            //Will implement scenario
             return Ok(new
             {
-                Score = 12.0,
+                Score = 750.0,
+                
                 Lenders = new List<Default>() { 
-                                                new Default() {}
+                                                new Default()  {
+                                                                    Lender = "LLoyds",
+                                                                    Products = new List<string> {"Credit Card","Unsecured Loan"},
+                                                                    Balance = 0,
+                                                                    PaidAmount = 26000,
+                                                                    Datetime= DateTime.Now.AddYears(-5), 
+                                                                    Status = Status.Satisfied
+                                                                }
                                               }
             });
         }

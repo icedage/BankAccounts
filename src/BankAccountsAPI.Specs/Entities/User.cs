@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccountsAPI.Specs.Entities
+namespace AccountsAPI.Specs.Entities
 {
     public class User
     {

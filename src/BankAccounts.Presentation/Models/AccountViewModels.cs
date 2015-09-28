@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BankAccounts.Presentation.Models
+namespace AccountsAPI.Presentation.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

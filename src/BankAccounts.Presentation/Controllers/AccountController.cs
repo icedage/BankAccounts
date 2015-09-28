@@ -5,9 +5,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BankAccounts.Presentation.Models;
+using AccountsAPI.Presentation.Models;
 
-namespace BankAccounts.Presentation.Controllers
+namespace AccountsAPI.Presentation.Controllers
 {
     [Authorize]
     public class AccountController : Controller

@@ -8,7 +8,7 @@
     <ProjectGuid>{F1C73616-C2BC-4B75-A4EF-639C21BE6F46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BankAccountsAPI.Specs</RootNamespace>
+    <RootNamespace>AccountsAPI.Specs</RootNamespace>
     <AssemblyName>BankAccountsAPI.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

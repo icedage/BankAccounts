@@ -1,8 +1,8 @@
-﻿using BankAccounts.Presentation.Models;
+﻿using AccountsAPI.Presentation.Models;
 using GatewayAPI.Entities;
 using GatewayAPI.GatewayController;
 
-namespace BankAccounts.Presentation.Presenters
+namespace AccountsAPI.Presentation.Presenters
 {
     public class BankAccountPresenter : IBankAccountPresenter
     {

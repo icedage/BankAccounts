@@ -1,6 +1,6 @@
-﻿using BankAccounts.Contracts;
+﻿using AccountsAPI.Contracts;
 
-namespace BankAccountsAPI.Models
+namespace AccountsAPI.Models
 {
     public class AccountModel
     {

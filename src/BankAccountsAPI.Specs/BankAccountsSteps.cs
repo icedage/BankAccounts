@@ -1,7 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 
-namespace BankAccountsAPI.Specs
+namespace AccountsAPI.Specs
 {
     [Binding]
     public class BankAccountsSteps

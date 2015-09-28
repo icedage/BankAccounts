@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Services.Dtos
+namespace AccountsAPI.Services.Dtos
 {
     public class AddressDto
     {

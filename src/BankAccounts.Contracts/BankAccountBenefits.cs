@@ -1,8 +1,8 @@
-﻿using BankAccounts.Services.AccountBenefits;
-using BankAccounts.Services.AccountBenefits.Classic;
-using BankAccounts.Services.AccountBenefits.Gold;
+﻿using AccountsAPI.Services.AccountBenefits;
+using AccountsAPI.Services.AccountBenefits.Classic;
+using AccountsAPI.Services.AccountBenefits.Gold;
 
-namespace BankAccounts.Contracts
+namespace AccountsAPI.Contracts
 {
     public class BankAccountBenefits
     {

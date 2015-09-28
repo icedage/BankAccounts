@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BankAccounts.Presentation.Models
+namespace AccountsAPI.Presentation.Models
 {
     public class BankAccountModel
     {
@@ -17,7 +17,7 @@ namespace BankAccounts.Presentation.Models
 
         public string PostCode { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         public decimal AnnualGrossSalary { get; set; }
 

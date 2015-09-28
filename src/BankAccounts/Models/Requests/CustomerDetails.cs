@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace BankAccountsAPI.Models.Requests
+namespace AccountsAPI.Models.Requests
 {
-    public class CustomerDetails : IValidatableObject
+    public class CustomerDetails// : IValidatableObject
     {
        public string PersonalId { get; set; }
 
@@ -25,6 +25,8 @@ namespace BankAccountsAPI.Models.Requests
        public decimal AnnualGrossSalary { get; set; }
 
        public decimal AnnualNetSalary { get; set; }
+
+       public string NationalInsuranceNumber { get; set; }
 
        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
        {

@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts.Identity
+namespace AccountsAPI.Identity
 {
     public class ApplicationUser : IdentityUser
     {

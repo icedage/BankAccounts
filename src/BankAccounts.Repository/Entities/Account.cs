@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankAccounts.Contracts;
+using AccountsAPI.Contracts;
 
-namespace BankAccounts.Repository.Entities
+namespace AccountsAPI.Repository.Entities
 {
     public class Account
     {
